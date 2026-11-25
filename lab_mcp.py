@@ -15,16 +15,18 @@ from starlette.responses import Response
 from starlette.routing import Mount
 import uvicorn
 
-from admission import MAX_POLICY, check, checked_release, fields, stamp
+from admission import check, checked_release, fields, stamp
 from lab import transact
+from native_budget import LabBudget
 
 TOOLS = {"scenarios.list", "scenario.evaluate"}
 
 
 def load_policy(path, approved):
+    budget = LabBudget.current()
     with path.open("rb") as src:
-        raw = src.read(MAX_POLICY + 1)
-    check(len(raw) <= MAX_POLICY and stamp(raw) == approved, "MCP policy pin mismatch")
+        raw = src.read(budget.policy_bytes + 1)
+    check(len(raw) <= budget.policy_bytes and stamp(raw) == approved, "MCP policy pin mismatch")
     policy = tomllib.loads(raw.decode())
     fields(policy, ("version", "protocol", "host", "port", "roles", "scenarios"))
     check(type(policy["version"]) is int and policy["version"] == 1, "unsupported policy")

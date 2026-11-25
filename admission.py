@@ -7,7 +7,7 @@ import tomllib
 
 ROOT = Path(__file__).resolve().parent
 from release_pin import RELEASE_PIN
-MAX_POLICY = 131072
+from native_budget import LabBudget
 
 
 def stamp(raw):
@@ -59,7 +59,7 @@ def wound(table):
 
 
 def resolve(raw):
-    check(len(raw) <= MAX_POLICY, "policy too large")
+    check(len(raw) <= LabBudget.current().policy_bytes, "policy too large")
     release = checked_release()
     from _v2.Resources import catalog, compose, evaluate, example
     policy = tomllib.loads(raw.decode("utf-8"))

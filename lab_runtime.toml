@@ -1,1 +1,2 @@
 ledger_wait_seconds = 10
+policy_bytes = 131072
