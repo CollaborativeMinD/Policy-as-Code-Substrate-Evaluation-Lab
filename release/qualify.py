@@ -185,6 +185,12 @@ def container(cfg, commit, out, platform, scanner):
     compose=["docker","compose","-p",project,"-f",str(spec)]
     try:
         run(*compose,"config","--quiet")
+        run(*compose, "run", "--rm", "-T", "console", "credentials", "/state/credentials",
+            timeout=cfg.witness_seconds)
+        run(*compose, "up", "-d", "console", timeout=cfg.witness_seconds)
+        boot = json.loads(run(*compose, "exec", "-T", "console", "python3.13", "-m", "release.boot_probe",
+                              str(cfg.witness_seconds), timeout=cfg.witness_seconds))
+        run(*compose, "stop", "console", timeout=cfg.witness_seconds)
         probe="""import json,os,platform,sys,tempfile,shutil
 from pathlib import Path
 from release.bundle import verify
@@ -212,7 +218,7 @@ print(json.dumps(dict(status=result["status"], witness=result, uid=os.getuid(), 
         raise ValueError("Restored image identity differs")
     put(out/"verification.json",dict(commit=commit,platform=platform,image=tag,image_id=image["Id"],
         policy_sha256=pin, release_policy_sha256=sha(ROOT/"release/policy.toml"),scan_sha256=report,
-        distribution_sha256=sha(dest),compose_sha256=sha(spec),effect=witness))
+        distribution_sha256=sha(dest),compose_sha256=sha(spec),first_boot=boot,effect=witness))
 
 
 if __name__=="__main__":

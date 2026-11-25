@@ -12,7 +12,6 @@ COPY payload.zip /build/payload.zip
 RUN python3.13 -m zipfile -e /build/payload.zip /app
 ARG RUNTIME_UID
 ARG RUNTIME_GID
-RUN mkdir /state && touch /state/.initialized && chown -R "${RUNTIME_UID}:${RUNTIME_GID}" /state
 FROM pythonbase
 ARG REVISION
 ARG RUNTIME_UID
@@ -21,7 +20,7 @@ LABEL org.opencontainers.image.revision="${REVISION}"
 ENV PATH="/opt/venv/bin:${PATH}" PYTHONUNBUFFERED=1 PYTHONDONTWRITEBYTECODE=1 MODEL_POLICY_HOME=/state/models
 COPY --from=install /opt/venv /opt/venv
 COPY --from=install /app /app
-COPY --from=install /state /state
+RUN mkdir /state && chown "${RUNTIME_UID}:${RUNTIME_GID}" /state && chmod 0700 /state
 WORKDIR /app
 USER ${RUNTIME_UID}:${RUNTIME_GID}
 ENTRYPOINT ["python3.13", "-B", "-m", "console_app.server"]
