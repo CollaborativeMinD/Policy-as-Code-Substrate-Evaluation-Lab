@@ -60,7 +60,10 @@ async def run(tmp, source):
     clients = {role: Remote(port,keys/(role+".token")) for role in cfg["roles"]}
     viewer, admin, agent = (clients[r] for r in ("viewer","admin","agent"))
     try:
-        for _ in range(200):
+        with (ROOT / "release/policy.toml").open("rb") as stream:
+            startup_budget = tomllib.load(stream)["witness_seconds"]
+        deadline = asyncio.get_running_loop().time() + startup_budget
+        while asyncio.get_running_loop().time() < deadline:
             if proc.poll() is not None:
                 raise RuntimeError("Console service exited")
             try:
@@ -70,6 +73,8 @@ async def run(tmp, source):
                 break
             except OSError:
                 await asyncio.sleep(.05)
+        else:
+            raise TimeoutError("Console did not become ready within the witness budget")
         # Change the TOML body limit in this fixture and observe the HTTP enforcement.
         import http.client
         with closing(http.client.HTTPConnection("127.0.0.1", port, timeout=5)) as connection:
