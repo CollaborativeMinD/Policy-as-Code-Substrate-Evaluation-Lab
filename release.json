@@ -16,7 +16,8 @@
   },
   "governance": {
     "admission.py": "a4508aaf8be240e0e06c397032c835197df7d31bc2192e11821ae56c49fd0a56",
-    "lab.py": "95d91abc9aa813924cd6e7baaacb14f384c32a0b9e4b7a9702b99767e09556dc"
+    "lab.py": "fe096a64bb5062d4a77de74172cd361d9bae49bfbe60becc57dc3b24b902f64d",
+    "native_budget.py": "de3d9bb2928ecd91e335a14d9901c7e40d09c583188e240960d77262a2772ca9"
   },
   "origin": "aecd19edde483d0fc160087a1ab24506a4d33debc04b7aa370a79d18c57f7f79",
   "reference_only": [

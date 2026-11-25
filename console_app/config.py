@@ -44,6 +44,7 @@ def read_config(path, pin):
         editable = binding["editable_inputs"]
         if not isinstance(editable, list) or not set(editable) <= binding["inputs"].keys() or len(set(editable)) != len(editable):
             raise ValueError("Unknown or duplicate editable task input")
+        binding["runtime"] = limits
         binding["resource"] = name
         adapter.validate(binding, binding["inputs"])
     cfg["pin"] = pin

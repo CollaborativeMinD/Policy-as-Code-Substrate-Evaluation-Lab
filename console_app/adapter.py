@@ -17,7 +17,7 @@ def native(binding, role):
     cfg = tomllib.loads(path.read_text(encoding="utf8"))
     if set(cfg) != {"port", "reader_file", "evaluator_file"}:
         raise ValueError("Invalid lab upstream")
-    return Remote(cfg["port"], path.parent / cfg[role + "_file"])
+    return Remote(cfg["port"], path.parent / cfg[role + "_file"], binding["runtime"])
 
 
 def observe(binding):

@@ -3,6 +3,7 @@ import argparse
 from contextlib import closing
 import json
 from pathlib import Path
+from native_budget import LabBudget
 import sqlite3
 import sys
 from admission import MAX_POLICY, canonical, check, resolve, stamp
@@ -16,7 +17,7 @@ def transact(action, path, state, approved=None):
         check(digest == approved, "candidate differs from approved digest")
     check(action in ("admit","run"), "unknown operation")
     with closing(sqlite3.connect(state if action == "admit" else state.resolve().as_uri()+"?mode=rw",
-                                 uri=action=="run", timeout=10)) as db, db:
+                                 uri=action=="run", timeout=LabBudget.read(Path(__file__).with_name("lab_runtime.toml")).ledger_wait_seconds)) as db, db:
         db.execute("BEGIN IMMEDIATE")
         if action == "admit":
             db.execute("CREATE TABLE IF NOT EXISTS active(name TEXT PRIMARY KEY, generation INTEGER, digest TEXT)")
