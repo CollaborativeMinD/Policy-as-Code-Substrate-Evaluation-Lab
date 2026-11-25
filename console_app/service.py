@@ -11,8 +11,8 @@ from . import adapter
 from .config import digest
 
 
-def checked_policy(source, binding):
-    if len(source.encode()) > 16384:
+def checked_policy(source, binding, limits):
+    if len(source.encode()) > limits.draft_bytes:
         raise ValueError("Draft too large")
     doc = tomllib.loads(source)
     if set(doc) != {"enabled", "inputs"} or type(doc["enabled"]) is not bool:
@@ -48,7 +48,7 @@ class Service:
     @contextmanager
     def connection(self, write=False):
         mode = "rw" if write else "ro"
-        with closing(sqlite3.connect(self.path.as_uri() + "?mode=" + mode, uri=True, timeout=10)) as db, db:
+        with closing(sqlite3.connect(self.path.as_uri() + "?mode=" + mode, uri=True, timeout=self.config["runtime"].ledger_wait_seconds)) as db, db:
             if write:
                 db.execute("BEGIN IMMEDIATE")
             yield db
@@ -59,7 +59,7 @@ class Service:
             raise ValueError("Resource outside console scope")
         generation, source = db.execute("SELECT generation,source FROM policy WHERE pin=? AND resource=?",
                                         (self.config["pin"], name)).fetchone()
-        doc = checked_policy(source, binding)
+        doc = checked_policy(source, binding, self.config["runtime"])
         version = digest(source.encode())
         revision = f"{self.config['pin']}/{generation}/{version}"
         return binding, doc, {"resource": name, "toml": source, "draft_sha256": version, "revision": revision}
@@ -103,7 +103,7 @@ class Service:
             native, _ = adapter.observe(binding)
             if edit["draft_sha256"] != draft_sha256 or revision != edit["revision"] + "/" + native:
                 raise ValueError("Stale draft; open the current revision")
-            checked_policy(source, binding)
+            checked_policy(source, binding, self.config["runtime"])
             db.execute("UPDATE policy SET generation=generation+1,source=? WHERE pin=? AND resource=?",
                        (source, self.config["pin"], resource))
             _, _, updated = self.snapshot(db, resource)

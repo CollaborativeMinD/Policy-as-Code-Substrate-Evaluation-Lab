@@ -9,6 +9,7 @@ from textual.containers import Horizontal
 from textual.widgets import Button, DataTable, Footer, Header, Input, Select, Static, TextArea
 
 from .client import Remote
+from .runtime_policy import RuntimePolicy
 
 
 class Console(App):
@@ -70,9 +71,9 @@ class Console(App):
             self.grants = set(frame["tools"])
             before = self.rows
             self.rows = {r["resource"]: r for r in frame["rows"]}
-            self.sub_title = frame["component"] + " · " + frame["role"].capitalize()
+            self.sub_title = frame["component"] + " Â· " + frame["role"].capitalize()
             count = sum(r["state"] == "active" for r in self.rows.values())
-            self.query_one("#status", Static).update(f"{count} active   ·   {len(self.rows)} in inventory")
+            self.query_one("#status", Static).update(f"{count} active   Â·   {len(self.rows)} in inventory")
             if self.rows != before:
                 self.render_rows()
             self.controls()
@@ -81,7 +82,7 @@ class Console(App):
                 return
             self.rows = {}
             self.grants.clear()
-            self.query_one("#status", Static).update("Observation unavailable · check service and credential")
+            self.query_one("#status", Static).update("Observation unavailable Â· check service and credential")
             self.render_rows()
             self.controls()
 
@@ -131,9 +132,9 @@ class Console(App):
         self.query_one(TextArea).display = bool(admin and self.edit or agent and tasks)
         label = self.selected or "No matching resource"
         if stale:
-            label += "   ·   Draft is stale. Open the current revision."
+            label += "   Â·   Draft is stale. Open the current revision."
         elif row.get("revision"):
-            label += "   ·   " + row["revision"].split("/")[-1][:12]
+            label += "   Â·   " + row["revision"].split("/")[-1][:12]
         self.query_one("#context", Static).update(label)
 
     def on_data_table_row_highlighted(self, event):
@@ -168,7 +169,7 @@ class Console(App):
             elif event.button.id == "run":
                 receipt = await self.remote.call("task.execute", name=self.query_one(Select).value,
                                                  inputs=tomllib.loads(editor.text), revision=self.rows[self.selected]["revision"])
-                self.feedback(f'{receipt["disposition"]}   ·   result {receipt["result"]}   ·   receipt {receipt["id"]}')
+                self.feedback(f'{receipt["disposition"]}   Â·   result {receipt["result"]}   Â·   receipt {receipt["id"]}')
         except Exception as exc:
             self.feedback(f"Request failed. {exc}")
         self.controls()
@@ -180,8 +181,11 @@ def main():
     parser.add_argument("--policy", type=Path, default=Path("console.toml"))
     parser.add_argument("--port", type=int)
     args = parser.parse_args()
-    port = tomllib.loads(args.policy.read_text())["port"] if args.port is None else args.port
-    Console(Remote(port, args.token)).run()
+    doc = tomllib.loads(args.policy.read_text(encoding="utf8"))
+    port = doc["port"] if args.port is None else args.port
+    panel = Console(Remote(port, args.token, RuntimePolicy.read(doc)))
+    panel.interval = doc["poll_seconds"]
+    panel.run()
 
 if __name__ == "__main__":
     main()

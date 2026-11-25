@@ -76,7 +76,7 @@ def surface(role, service):
         async def execute(name: str, inputs: dict[str, Any], revision: str) -> dict[str, Any]:
             """Run an admitted named task and return the recorded effect receipt."""
             return await invoke(service.execute, name, inputs, revision)
-    return server.streamable_http_app(stateless_http=True, json_response=True, max_request_body_size=65536)
+    return server.streamable_http_app(stateless_http=True, json_response=True, max_request_body_size=service.config["runtime"].request_bytes)
 
 
 def application(config, directory, state):
@@ -131,7 +131,7 @@ def main():
         return
     config = read_config(args.policy, args.sha256)
     uvicorn.run(application(config, args.credentials, args.state), host=config["host"], port=config["port"],
-                access_log=False, limit_concurrency=24, ws="none", proxy_headers=False)
+                access_log=False, limit_concurrency=config["runtime"].max_inflight, ws="none", proxy_headers=False)
 
 if __name__ == "__main__":
     main()

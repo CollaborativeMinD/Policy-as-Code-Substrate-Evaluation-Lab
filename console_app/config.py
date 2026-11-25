@@ -4,6 +4,8 @@ from pathlib import Path
 import re
 import tomllib
 
+from .runtime_policy import RuntimePolicy
+
 from . import adapter
 
 TOOLS = {"viewer": {"inventory.read"}, "admin": {"inventory.read", "policy.open", "policy.apply"},
@@ -19,8 +21,9 @@ def read_config(path, pin):
     if len(raw) > 65536 or digest(raw) != pin:
         raise ValueError("Console policy digest mismatch")
     cfg = tomllib.loads(raw.decode())
-    if (set(cfg) != {"version", "component", "host", "port", "protocol", "poll_seconds", "roles", "resources"}
-            or type(cfg["version"]) is not int or cfg["version"] != 1 or cfg["component"] != adapter.TITLE
+    limits = RuntimePolicy.read(cfg)
+    if ((set(cfg) - {"runtime"}) != {"version", "component", "host", "port", "protocol", "poll_seconds", "roles", "resources"}
+            or type(cfg["version"]) is not int or cfg["version"] not in (1, 2) or cfg["component"] != adapter.TITLE
             or cfg["host"] != "127.0.0.1" or cfg["protocol"] != "2026-07-28"
             or type(cfg["port"]) is not int or not 0 < cfg["port"] < 65536
             or type(cfg["poll_seconds"]) not in (int, float) or not .25 <= cfg["poll_seconds"] <= 300
@@ -44,4 +47,5 @@ def read_config(path, pin):
         binding["resource"] = name
         adapter.validate(binding, binding["inputs"])
     cfg["pin"] = pin
+    cfg["runtime"] = limits
     return cfg

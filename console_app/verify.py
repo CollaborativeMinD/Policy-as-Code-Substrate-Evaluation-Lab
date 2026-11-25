@@ -46,6 +46,14 @@ async def run(tmp, source):
     else:
         raise AssertionError("Invalid policy pin accepted")
     keys, state = tmp / "keys", tmp / "state"
+    invalid = tmp / "invalid-budget.toml"
+    invalid.write_bytes(path.read_bytes().replace(b"max_inflight = 24", b"max_inflight = 0"))
+    try:
+        read_config(invalid, sha256(invalid.read_bytes()).hexdigest())
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("Invalid runtime budget was admitted")
     provision(keys)
     proc = subprocess.Popen([sys.executable, "-B","-m","console_app.server","serve","--credentials",str(keys),
                              "--policy",str(path),"--sha256",pin,"--state",str(state)],cwd=ROOT)

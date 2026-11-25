@@ -1,9 +1,19 @@
-version = 1
+version = 2
 component = "Substrate Evaluation Lab"
 host = "127.0.0.1"
 port = 8775
 protocol = "2026-07-28"
 poll_seconds = 3
+
+
+[runtime]
+request_bytes = 65536
+max_inflight = 24
+connect_seconds = 5
+read_seconds = 25
+execute_seconds = 25
+ledger_wait_seconds = 10
+draft_bytes = 16384
 
 [roles]
 viewer = ["inventory.read"]
