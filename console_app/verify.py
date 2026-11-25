@@ -36,7 +36,7 @@ async def run(tmp, source):
     cfg = tomllib.loads(source)
     name = next(iter(cfg["resources"]))
     path = tmp / "console.toml"
-    path.write_text(source.replace(f'port = {cfg["port"]}',f'port = {port}',1)
+    path.write_text(source.replace("request_bytes = 65536", "request_bytes = 49152").replace(f'port = {cfg["port"]}',f'port = {port}',1)
                     .replace("poll_seconds = 3","poll_seconds = 0.5"))
     pin = sha256(path.read_bytes()).hexdigest()
     try:
@@ -70,6 +70,17 @@ async def run(tmp, source):
                 break
             except OSError:
                 await asyncio.sleep(.05)
+        # Change the TOML body limit in this fixture and observe the HTTP enforcement.
+        import http.client
+        with closing(http.client.HTTPConnection("127.0.0.1", port, timeout=5)) as connection:
+            token = (keys / "viewer.token").read_text().strip()
+            connection.request("POST", "/mcp", body=b" " * 49153, headers={
+                "Authorization": "Bearer " + token, "Content-Type": "application/json",
+                "Mcp-Protocol-Version": "2026-07-28", "Accept": "application/json, text/event-stream",
+                "Mcp-Method": "tools/list"})
+            response = connection.getresponse()
+            assert response.status == 413, response.status
+            response.read()
         bad = keys / "bad.token"
         bad.write_text("invalid")
         try:
