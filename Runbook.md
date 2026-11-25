@@ -42,3 +42,15 @@ Start with [policies/pi-thermal.toml](policies/pi-thermal.toml) for this compone
 The version 2 `[runtime]` table in `console.toml` sets request size, concurrency and client deadlines. Version 1 files inherit the shipped budget. Reissue them as version 2 to pin these choices in the admitted document.
 
 Set the SQLite contention deadline in [lab_runtime.toml](lab_runtime.toml). Scenario TOML controls the analytical evaluation. The signed-off v2.0.0 kernel and worked baselines remain the reference for comparison.
+
+## Build and ship this revision
+
+Review [release/policy.toml](release/policy.toml) and the hash-locked dependency closure. Local Forgejo builds the Linux wheel, source distribution and exact-source ZIP. On the trusted Windows workstation set `PAC_CHECKOUT` to the clean checkout, `PAC_OUTPUT` to a fresh release directory, `PAC_BUILD_PYTHON` to a Python 3.13 environment with `release/build.lock`, and `PAC_SCANNER` to the pinned Trivy executable. Run this from the checkout.
+
+```powershell
+forgejo-runner exec --workflows release/workstation.yml --job workstation --image=-self-hosted --detect-event --env "PAC_CHECKOUT=$env:PAC_CHECKOUT" --env "PAC_OUTPUT=$env:PAC_OUTPUT" --env "PAC_BUILD_PYTHON=$env:PAC_BUILD_PYTHON" --env "PAC_SCANNER=$env:PAC_SCANNER"
+```
+
+The job builds and reinstalls the Windows wheel, checks the target machine and UID, exercises the native console effect in hardened Compose, scans the image, exports it and checks the restored image ID. For a package installation, install the release lock followed by the wheel with `--no-deps`. Use the command named by the release policy with `unpack NEW_DIRECTORY` to install the exact component tree. Follow its native runbook from there.
+
+For a container installation, load the matching `.image.tar.gz` and use its accompanying `compose.json`. Provision the service's credential directory with `docker compose -f compose.json run --rm console credentials /state/credentials`. Apply the component's native setup before starting the console. The server binds loopback inside its own network namespace. Supply upstream files as read-only mounts and place a dependent local service or client in that same namespace. Review the policy digest, package hashes, image identity, scan report and effect before promoting the revision.

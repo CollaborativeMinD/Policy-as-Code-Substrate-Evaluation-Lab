@@ -1,0 +1,51 @@
+name: Linux release distribution
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  qualify:
+    name: Build and verify the release distributions
+    runs-on: station-linux
+    timeout-minutes: 20
+    steps:
+      - name: Check out the exact candidate
+        env:
+          CHECKOUT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python - <<'PY'
+          import base64
+          import os
+          from pathlib import Path
+          import subprocess
+
+          assert os.getuid() != 0
+          assert not Path("/var/run/docker.sock").exists()
+          token = base64.b64encode(f"x-access-token:{os.environ['CHECKOUT_TOKEN']}".encode()).decode()
+          env = dict(os.environ, GIT_CONFIG_COUNT="1", GIT_CONFIG_KEY_0="http.extraHeader",
+                     GIT_CONFIG_VALUE_0=f"Authorization: Basic {token}", GIT_TERMINAL_PROMPT="0")
+          revision = os.environ["GITHUB_SHA"]
+          remote = f"http://forgejo:3000/{os.environ['GITHUB_REPOSITORY']}.git"
+          subprocess.run(["git", "init", "-q", "checkout"], check=True)
+          subprocess.run(["git", "-C", "checkout", "fetch", "-q", "--depth=1", remote, revision], env=env, check=True)
+          subprocess.run(["git", "-C", "checkout", "checkout", "-q", "--detach", "FETCH_HEAD"], check=True)
+          assert subprocess.check_output(["git", "-C", "checkout", "rev-parse", "HEAD"], text=True).strip() == revision
+          PY
+      - name: Build and reinstall the revision-bound Python distributions
+        working-directory: checkout
+        run: |
+          set -eu
+          python -m venv .venv
+          . .venv/bin/activate
+          python -m pip install -r release/build.lock
+          python release/qualify.py package ../distributions
+      - name: Preserve Linux distribution and verification
+        uses: https://data.forgejo.org/forgejo/upload-artifact@16871d9e8cfcf27ff31822cac382bbb5450f1e1e
+        with:
+          name: linux-release
+          path: distributions/
+          if-no-files-found: error

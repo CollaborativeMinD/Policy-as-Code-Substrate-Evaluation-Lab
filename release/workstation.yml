@@ -1,0 +1,18 @@
+name: Local Windows release
+on: workflow_dispatch
+jobs:
+  workstation:
+    runs-on: station-windows
+    steps:
+      - name: Build Windows distributions and exercise both Compose platforms
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          Set-Location -LiteralPath $env:PAC_CHECKOUT
+          if ((git rev-parse HEAD) -ne $env:GITHUB_SHA) { throw 'Release checkout differs from the runner revision' }
+          & $env:PAC_BUILD_PYTHON release/qualify.py package (Join-Path $env:PAC_OUTPUT windows)
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          foreach ($arch in 'amd64','arm64') {
+            & $env:PAC_BUILD_PYTHON release/qualify.py container (Join-Path $env:PAC_OUTPUT $arch) --platform "linux/$arch" --scanner $env:PAC_SCANNER
+            if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          }
