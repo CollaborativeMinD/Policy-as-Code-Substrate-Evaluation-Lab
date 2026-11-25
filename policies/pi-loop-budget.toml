@@ -1,0 +1,28 @@
+version = 1
+name = "pi-loop-budget"
+generation = 1
+inputs = "operator-supplied"
+time_s = 0
+wounds = []
+
+[substrate]
+id = "controller.raspberry_pi5_8gb.v1"
+overrides = ["loop_budget_s"]
+[substrate.parameters]
+alternate_c = 70
+contingency_c = 78
+terminal_c = 85
+alternate_memory = 0.75
+contingency_memory = 0.88
+terminal_memory = 0.94
+loop_budget_s = 0.1
+queue_limit_items = 128
+latency_s = 0.01
+thermal_onset_c = 80
+delay_s_per_k = 0.01
+
+[observations]
+temperature_c = 45
+memory_fraction = 0.35
+loop_time_s = 0.2
+queue_items = 5

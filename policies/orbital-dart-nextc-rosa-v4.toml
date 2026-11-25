@@ -1,0 +1,21 @@
+version = 1
+name = "orbital-dart-nextc-rosa-v4"
+generation = 1
+inputs = "teaching-fixture"
+time_s = 0
+wounds = []
+
+[substrate]
+id = "orbital.dart_nextc_rosa.v4"
+overrides = []
+[substrate.parameters]
+array_power_w = 6600
+thrust_n = 0.235
+mass_kg = 600
+
+[observations]
+eclipse_fraction = 0.2
+sun_angle_deg = 30
+load_w = 5000
+usable_energy_wh = 1000
+burn_duration_s = 10

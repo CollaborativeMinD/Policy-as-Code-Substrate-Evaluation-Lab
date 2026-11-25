@@ -1,0 +1,21 @@
+version = 1
+name = "humanoid-nasa-valkyrie-v1"
+generation = 1
+inputs = "teaching-fixture"
+time_s = 0
+wounds = []
+
+[substrate]
+id = "humanoid.nasa_valkyrie.v1"
+overrides = []
+[substrate.parameters]
+support_half_width_m = 0.15
+gravity_m_s2 = 9.80665
+
+[observations]
+com_height_m = 1
+com_x_m = 0.02
+com_velocity_m_s = 0.2
+friction_coefficient = 0.6
+normal_force_n = 1000
+tangent_force_n = 100

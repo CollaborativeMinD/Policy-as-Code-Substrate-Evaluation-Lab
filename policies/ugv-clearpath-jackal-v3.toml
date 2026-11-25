@@ -1,0 +1,21 @@
+version = 1
+name = "ugv-clearpath-jackal-v3"
+generation = 1
+inputs = "teaching-fixture"
+time_s = 0
+wounds = []
+
+[substrate]
+id = "ugv.clearpath_jackal.v3"
+overrides = []
+[substrate.parameters]
+brake_decel_m_s2 = 1
+latency_s = 0.1
+track_m = 0.3755
+
+[observations]
+speed_m_s = 1.2
+traction_fraction = 1
+clearance_m = 3
+left_wheel_m_s = 1.1
+right_wheel_m_s = 1.3

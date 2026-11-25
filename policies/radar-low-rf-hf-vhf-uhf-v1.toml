@@ -1,0 +1,18 @@
+version = 1
+name = "radar-low-rf-hf-vhf-uhf-v1"
+generation = 1
+inputs = "teaching-fixture"
+time_s = 0
+wounds = []
+
+[substrate]
+id = "radar.low_rf.hf_vhf_uhf.v1"
+overrides = []
+[substrate.parameters]
+required_snr_db = 10
+
+[observations]
+frequency_hz = 30000000.0
+range_m = 10000.0
+bandwidth_hz = 100000.0
+snr_db = 15

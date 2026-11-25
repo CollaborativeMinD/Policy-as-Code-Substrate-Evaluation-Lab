@@ -1,0 +1,17 @@
+version = 1
+name = "orbital-coverage-earth-geometry-v1"
+generation = 1
+inputs = "teaching-fixture"
+time_s = 0
+wounds = []
+
+[substrate]
+id = "orbital.coverage.earth_geometry.v1"
+overrides = []
+[substrate.parameters]
+radius_m = 6371000
+mu_m3_s2 = 398600435507000.0
+
+[observations]
+altitude_m = 550000
+elevation_deg = 10

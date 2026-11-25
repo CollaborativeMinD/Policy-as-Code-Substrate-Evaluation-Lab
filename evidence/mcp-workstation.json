@@ -1,0 +1,123 @@
+{
+  "checks": [
+    "incorrect transport pin rejected",
+    "unauthenticated request rejected",
+    "foreign origin rejected",
+    "reader cannot evaluate",
+    "all admitted effects match v2 reconciliation",
+    "unlisted name rejected",
+    "repeat is idempotent",
+    "superseded policy hidden and denied",
+    "denials create no receipts"
+  ],
+  "mcp_sdk": "2.3.0",
+  "platform": "Windows",
+  "protocol": "2026-07-28",
+  "python": "3.13.17",
+  "scenarios": {
+    "asv-surface-vessel-v1": {
+      "disposition": "WITHIN_DECLARED_MODEL",
+      "receipt_sha256": "782d16659901d52704597e6c77e2601e3b676e6c8d359da1b4b52010e51e283f"
+    },
+    "controller-am68a-custom-8gb-v1": {
+      "disposition": "WITHIN_DECLARED_MODEL",
+      "receipt_sha256": "340ec6cc90ca35aaba80debde8677b854b9e6ff481226e4dca0cecccc9579933"
+    },
+    "controller-beaglebone-ai64-4gb-v1": {
+      "disposition": "WITHIN_DECLARED_MODEL",
+      "receipt_sha256": "a22bd26f7867c7fecbfa9c4f3e6180515b2316fd93424226576f8a21619db460"
+    },
+    "controller-jetson-orin-nano-8gb-v1": {
+      "disposition": "WITHIN_DECLARED_MODEL",
+      "receipt_sha256": "784e137753c15ef83de303f2fa93696ec408eee2297037372354861ad94d6bff"
+    },
+    "controller-raspberry-pi5-8gb-v1": {
+      "disposition": "WITHIN_DECLARED_MODEL",
+      "receipt_sha256": "997872efee593833426333abbb8130987e8a5e2d1e1f7c968d8a204d2890fbdb"
+    },
+    "controller-tda4vm-custom-8gb-v2": {
+      "disposition": "WITHIN_DECLARED_MODEL",
+      "receipt_sha256": "84a1a59608644f7057f66c9ff0f9720201175d4f95139f8bc8ba73de0cc1efbc"
+    },
+    "drone-iris-ardupilot-v4": {
+      "disposition": "WITHIN_DECLARED_MODEL",
+      "receipt_sha256": "cbc33b9817870ab8391bee443075cb7f9b6a1004e39aed71c0a778730a3cce08"
+    },
+    "humanoid-nasa-valkyrie-v1": {
+      "disposition": "WITHIN_DECLARED_MODEL",
+      "receipt_sha256": "eb01009aac7bc4c115da24d0a8951938129d1b7ce3628314f2d626d4b0b291ce"
+    },
+    "hypersonic-x43a-v5": {
+      "disposition": "WITHIN_DECLARED_MODEL",
+      "receipt_sha256": "9d1e1ade23f9d126c6377d946b9cb209b14326bba9cc5025ede702e79f9d44af"
+    },
+    "jackal-no-traction": {
+      "disposition": "CAPABILITY_LOST",
+      "receipt_sha256": "e9922969d5e6f94e012dee03f9d71d46752549637d770e858ceaf3f2112ed564"
+    },
+    "jackal-pi-traction": {
+      "disposition": "WITHIN_DECLARED_MODEL",
+      "receipt_sha256": "3ca45c46b5d4192954a309cef626356fd71db79b9ce628ca84fb98b61f5e836c"
+    },
+    "jet-airframe-nasa-gtm-v1": {
+      "disposition": "WITHIN_DECLARED_MODEL",
+      "receipt_sha256": "88712ca69132ee1a619f207c47078c47839878fea66e6b3730983fc0f3f22aa8"
+    },
+    "launch-vehicle-blue-origin-new-glenn-v1": {
+      "disposition": "WITHIN_DECLARED_MODEL",
+      "receipt_sha256": "3d2debad30385126ed46ac8110683854d702388791f7c7f01d9ec09ffc50da56"
+    },
+    "maritime-remus100-v10": {
+      "disposition": "WITHIN_DECLARED_MODEL",
+      "receipt_sha256": "b547fecb20d4de36c43f996bf9773873b8cd31159b7cfe504fd48e522fe98f31"
+    },
+    "nuclear-containment-iaea-nrc-v1": {
+      "disposition": "WITHIN_DECLARED_MODEL",
+      "receipt_sha256": "e5ec41f39f4946d7df5946796b7574d5c5b9a22d8b8553469c95e1c532fc6eab"
+    },
+    "orbital-coverage-earth-geometry-v1": {
+      "disposition": "WITHIN_DECLARED_MODEL",
+      "receipt_sha256": "5d20874ee9f7da3ebdc242f90499f1a3f3b21673193f0a3ffe024a9cda837563"
+    },
+    "orbital-dart-nextc-rosa-v4": {
+      "disposition": "LIMIT_EXCEEDED",
+      "receipt_sha256": "5edb3ee42d06a69d1b3a1bd46ee0af89ca278c03233781dfeaf448aec2c2d7a3"
+    },
+    "panda-source": {
+      "disposition": "LIMIT_EXCEEDED",
+      "receipt_sha256": "f1f0d07cba8dc05fc4f823e85a9e4e5084bac11c9dbb5aca5f8aab1254b71490"
+    },
+    "pi-loop-budget": {
+      "disposition": "LIMIT_EXCEEDED",
+      "receipt_sha256": "599c2e4216113d496c22a8202c8d8261edc299395bc29013510900ffa0cb3b82"
+    },
+    "pi-thermal": {
+      "disposition": "POLICY_DEGRADED",
+      "receipt_sha256": "131252294dd5360837ef39ae14216e348b6ffdbc6769594c4cfd9b185c0defdb"
+    },
+    "radar-low-rf-hf-vhf-uhf-v1": {
+      "disposition": "WITHIN_DECLARED_MODEL",
+      "receipt_sha256": "db5275191819f4ba983ac8586ee6638acfe825491e52759e0675c58272e6c125"
+    },
+    "radar-xband-public-physics-v1": {
+      "disposition": "WITHIN_DECLARED_MODEL",
+      "receipt_sha256": "7b3c282bd08561b1b0ca6c9bea4095539a7c5c02b9c13638d2cae2183ee15ab0"
+    },
+    "robotic-franka-panda-v4": {
+      "disposition": "WITHIN_DECLARED_MODEL",
+      "receipt_sha256": "0f9f0896eba8419bbfbbff1be688cf193c25915d2c8facc8ddac054b63a61c95"
+    },
+    "ugv-clearpath-jackal-v3": {
+      "disposition": "WITHIN_DECLARED_MODEL",
+      "receipt_sha256": "f89fa34ec1f8074740ceb8b4014fa6bd14e379cac134407d56dbf2167ed28d9c"
+    },
+    "wetware-mammalian-operator-v1": {
+      "disposition": "WITHIN_DECLARED_MODEL",
+      "receipt_sha256": "7b6815cbeb6e45adf35efbd6dcd487165b5dc5d4f23450e7ccac4073f391fbf1"
+    }
+  },
+  "server_sha256": "c5f422f37b98ddb735cae962654ac4412125490f5aac6e5b164d3534bfd4039d",
+  "status": "PASS",
+  "test_port": "ephemeral IPv4 loopback",
+  "transport_policy_sha256": "62200237c8019cc723d62fa2250511851612ac07e1794768548e421e9be7ab9d"
+}

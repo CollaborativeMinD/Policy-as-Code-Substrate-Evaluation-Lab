@@ -1,0 +1,18 @@
+version = 1
+name = "launch-vehicle-blue-origin-new-glenn-v1"
+generation = 1
+inputs = "teaching-fixture"
+time_s = 0
+wounds = []
+
+[substrate]
+id = "launch_vehicle.blue_origin_new_glenn.v1"
+overrides = []
+[substrate.parameters]
+engine_count = 7
+engine_thrust_n = 2846000
+gravity_m_s2 = 9.80665
+
+[observations]
+throttle_fraction = 1
+mass_kg = 1500000.0

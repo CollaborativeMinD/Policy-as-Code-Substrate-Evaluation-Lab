@@ -1,0 +1,5 @@
+sympy==1.14.0
+numpy==2.5.5
+scipy==1.18.1
+marimo==0.26.0
+matplotlib==3.11.2

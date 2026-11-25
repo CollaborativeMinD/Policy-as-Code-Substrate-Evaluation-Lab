@@ -1,0 +1,28 @@
+{
+  "files": {
+    "__init__.py": "0700538772f473e40391f5f672692b7b951cfe7378222d87cae599d802d1a6b0",
+    "catalog.json": "64b16b2566a911a7d1348405cb3de074b1046bf99f0b80bef9c6a4ea97f2e6d8",
+    "contracts.py": "8e7c3c85e5b2206e578ba85de956cc62b2012905d67e3fc42b6401ed262c61e7",
+    "evaluate.py": "35a7041d5ef3d90fa6dbe7b570b37f2a5069c9d154b7c7d96ebbfa03887cd0e1",
+    "fields.py": "1839e7e84c3452ecda5f426aecdf5b2e00b7a38ce1deeb9b7daf4f232def9ed0",
+    "identity.py": "68f3755f4891ebb3dc352ccb19300147e9536936ef85f10150c192b8d256e4a7",
+    "mechanics.py": "63d15e824ea81724391cfd87c8c096ff44269930d7ec96e7adeeb3dc9745c140",
+    "reference_storage.py": "d45d44934fe811ebe450b4f37bcbc9c5368447b29c3669a54b8c62221af85f6f",
+    "registry.py": "f0772d9b5ac7e01dc2304f523b7786d7b5524d26a383afb71ab02baa3b664e36",
+    "replay.py": "66bd9ac30e35442d64b3c3ba2f0a3e3182fda24f242ec0d156007bac2a42a41b",
+    "response.py": "b049e84258b2fcabe8d35e28e3666e9755563a7bc42021a9d40742b467a93a5e",
+    "sources.json": "3bf2288ccd663b3c439bd25e34cc00814fc358ce8264c381b1d84c399b1138f9",
+    "wounds.py": "fd0e1ba5e6ead977951dd15206edc4a11e2c6aa83fad3e15f705e607e94027ce"
+  },
+  "governance": {
+    "admission.py": "a4508aaf8be240e0e06c397032c835197df7d31bc2192e11821ae56c49fd0a56",
+    "lab.py": "95d91abc9aa813924cd6e7baaacb14f384c32a0b9e4b7a9702b99767e09556dc"
+  },
+  "origin": "aecd19edde483d0fc160087a1ab24506a4d33debc04b7aa370a79d18c57f7f79",
+  "reference_only": [
+    "radar.xband.public_physics.v1",
+    "radar.low_rf.hf_vhf_uhf.v1",
+    "maritime.remus100.v10",
+    "hypersonic.x43a.v5"
+  ]
+}

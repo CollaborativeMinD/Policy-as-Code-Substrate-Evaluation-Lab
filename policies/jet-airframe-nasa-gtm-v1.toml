@@ -1,0 +1,19 @@
+version = 1
+name = "jet-airframe-nasa-gtm-v1"
+generation = 1
+inputs = "teaching-fixture"
+time_s = 0
+wounds = []
+
+[substrate]
+id = "jet.airframe.nasa_gtm.v1"
+overrides = []
+[substrate.parameters]
+area_m2 = 1
+q_limit_pa = 50000
+
+[observations]
+density_kg_m3 = 0.2
+speed_m_s = 200
+lift_coefficient = 0.5
+drag_coefficient = 0.1

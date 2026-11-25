@@ -1,0 +1,18 @@
+version = 1
+name = "radar-xband-public-physics-v1"
+generation = 1
+inputs = "teaching-fixture"
+time_s = 0
+wounds = []
+
+[substrate]
+id = "radar.xband.public_physics.v1"
+overrides = []
+[substrate.parameters]
+required_snr_db = 10
+
+[observations]
+frequency_hz = 10000000000.0
+range_m = 10000.0
+bandwidth_hz = 10000000.0
+snr_db = 15

@@ -1,0 +1,35 @@
+version = 1
+protocol = "2026-07-28"
+host = "127.0.0.1"
+port = 8765
+
+[roles]
+reader = ["scenarios.list"]
+evaluator = ["scenarios.list", "scenario.evaluate"]
+
+[scenarios]
+asv-surface-vessel-v1 = "287b4b35d19e8ce9a9733d020665eb32a214876c30f88e58d3851dfc764d2b9d"
+controller-am68a-custom-8gb-v1 = "55a17f6845b95039bc3764a7d99198f327d07d7af96957e750ce02fb4b48e533"
+controller-beaglebone-ai64-4gb-v1 = "2616c2747ecb5c1bf8c97f2d7c3fd924eb8932e6a05c464afc64f219176ac556"
+controller-jetson-orin-nano-8gb-v1 = "0988dd1dbfc0fa28c67654116f3feb03bb9ec622343bd6e7d9ff194b1effaeca"
+controller-raspberry-pi5-8gb-v1 = "6e02e6cebd58ee4fe9f390ffd10bea4432ad9acec76d412d3222567d01485b28"
+controller-tda4vm-custom-8gb-v2 = "54ddddfddd2d13b462438d0a3d70f4a43c45b811f10d7615a64538ae543d9f31"
+drone-iris-ardupilot-v4 = "d09a8e358ff0ab5dde6f88850c1456cdf16f4ddcd4cff5f5b77e2a53d51ce703"
+humanoid-nasa-valkyrie-v1 = "ed8964fd591a901abb68d98f7ac9ad8d133e22f947048ba2ad7f59996842a6de"
+hypersonic-x43a-v5 = "e2671eda5fb0a83226e464622f82131b9fcc30134d46811d936b52076a07b236"
+jackal-no-traction = "6380147d6cc1e81e48551d7f1009cee1aed26bbf55657c6ae0f72ec77874a8b1"
+jackal-pi-traction = "33c8ae0a8992d831fd1741a53b1bf2b88a206bcd957feade2d5cf472f1c15fe3"
+jet-airframe-nasa-gtm-v1 = "b9c2c8ae372e7353b388dfb703c20175f97665bdf1356f4587c510b98496d99b"
+launch-vehicle-blue-origin-new-glenn-v1 = "377d11fa924018e91769c9a7d1ad2ed78944530be9c190f64f305ed2ebaa6902"
+maritime-remus100-v10 = "3c563876d0a6625a9baf8d7ce684bce7a6fa56816759d031f42c4b1030cd6d6d"
+nuclear-containment-iaea-nrc-v1 = "b48c9d47be87286181203ce4eb4cd7f6d057ce6f6ffc7e0a86654751c801ffa6"
+orbital-coverage-earth-geometry-v1 = "3f2eed21638e5cd022bfd99f141a7192556d23cc4251eebf1fc8937e6a671573"
+orbital-dart-nextc-rosa-v4 = "e43cbf677d69f7db7d616d3236f69b481844e14626d36735a5749006f7b47276"
+panda-source = "483f89c761a024487083f3192e9830e84128a7b1b0876abd8fc6d83b03649b7f"
+pi-loop-budget = "6f79c11ac4d4b2a0e9cdbececcd4a97e5a673c365f7a361a9b20bf4ae2b0c7fd"
+pi-thermal = "082e9eb3a8ba83c04060e811102e9c64ba598ed1e9fe5cf049d8b69948cea9ce"
+radar-low-rf-hf-vhf-uhf-v1 = "eecd985f4224c6e5bf9195e9d91143aa6d2e9fcf3845d9598cb104806252f540"
+radar-xband-public-physics-v1 = "e2b3ff76a0d350922d45180360fbd0f2704bb69b89d32eb38a7e92a769023db9"
+robotic-franka-panda-v4 = "64825451d516b7fe93759453b4212c21d316e4dbb2659ff144da30a88524cb6b"
+ugv-clearpath-jackal-v3 = "03df846356b97a781b52afa1984366eab74c5214f990c3c7961b621e3e7a2cb7"
+wetware-mammalian-operator-v1 = "90092df0143554ff4ba34c654755605e7ffbf1adbbbc67338925398748e59b55"

@@ -1,0 +1,178 @@
+{
+  "baseline_replay": {
+    "checks": 725,
+    "open_reference": 5,
+    "passed": 720
+  },
+  "comparison": "Canonical JSON equality of complete configuration and complete effect receipt",
+  "denials": {
+    "boolean_as_number": "severity: expected real, got bool",
+    "duplicate_toml": "Cannot overwrite a value (at line 2, column 12)",
+    "generation_collision": "generation conflict or rollback",
+    "missing_observation": "teaching observation drift",
+    "outside_reference_scope": "outside reference scope",
+    "rollback": "generation conflict or rollback",
+    "stale_after_activation": "policy not active or admission record differs",
+    "unapproved_bytes": "policy not active or admission record differs",
+    "unbound_parameter": "unbound parameter change: alternate_c",
+    "unbound_substrate": "unknown canonical substrate",
+    "unknown_key": "unknown or missing fields",
+    "unknown_unit": "temperature_c: supply value and exact unit degC",
+    "wrong_pin": "candidate differs from approved digest"
+  },
+  "historical_gate_dispositions_equal": true,
+  "origin_sha256": "aecd19edde483d0fc160087a1ab24506a4d33debc04b7aa370a79d18c57f7f79",
+  "scenarios": {
+    "asv-surface-vessel-v1": {
+      "disposition": "WITHIN_DECLARED_MODEL",
+      "effect_sha256": "d89ab1cab618a006ee84d9983bc6336f8d74d4d2bb3ca4dae4cc811b1ca9888b",
+      "receipt_sha256": "782d16659901d52704597e6c77e2601e3b676e6c8d359da1b4b52010e51e283f",
+      "v2_config_sha256": "d1e974629dbca8ccf0f7b99e6bc6bae62078f6a695ccdf7fa637a50dcc9915b6"
+    },
+    "controller-am68a-custom-8gb-v1": {
+      "disposition": "WITHIN_DECLARED_MODEL",
+      "effect_sha256": "978239c73a1f5250f27a92d5a06283439e4dc175d370a48b820e02e68fd5265a",
+      "receipt_sha256": "340ec6cc90ca35aaba80debde8677b854b9e6ff481226e4dca0cecccc9579933",
+      "v2_config_sha256": "1252bd4f05c58376df5f3df83ddd331010d63b9c76be92d8c59b31e9ce03268e"
+    },
+    "controller-beaglebone-ai64-4gb-v1": {
+      "disposition": "WITHIN_DECLARED_MODEL",
+      "effect_sha256": "01f23bcabd54b8a60d2e7f90ffc7bb7abf7b8b52ac07984989eeafd6941b1cb7",
+      "receipt_sha256": "a22bd26f7867c7fecbfa9c4f3e6180515b2316fd93424226576f8a21619db460",
+      "v2_config_sha256": "89ff5263d82824dc21dd1ffcde35e4633fcb60b6088c6d0453786e428cd70930"
+    },
+    "controller-jetson-orin-nano-8gb-v1": {
+      "disposition": "WITHIN_DECLARED_MODEL",
+      "effect_sha256": "edb0b55d7814c6b2cff852157ffe0bfd301d76640bd040079980abbffae8a820",
+      "receipt_sha256": "784e137753c15ef83de303f2fa93696ec408eee2297037372354861ad94d6bff",
+      "v2_config_sha256": "2df4953c1df31b49bb5a4f5efcef99c7515a0c38d2fd716565dcd5665137c1f7"
+    },
+    "controller-raspberry-pi5-8gb-v1": {
+      "disposition": "WITHIN_DECLARED_MODEL",
+      "effect_sha256": "07e1d69a33dea29adcd667f2325c81e7fae6146168f2e8c94107dbcce9813f0d",
+      "receipt_sha256": "997872efee593833426333abbb8130987e8a5e2d1e1f7c968d8a204d2890fbdb",
+      "v2_config_sha256": "8bccf63727e2f2be9a83396c225a8fbde99e573d1d5dbe4dcdeabff3303e91fe"
+    },
+    "controller-tda4vm-custom-8gb-v2": {
+      "disposition": "WITHIN_DECLARED_MODEL",
+      "effect_sha256": "cb22ce46a889ccd8d5ef6494c61f85bbe3d43ac49c71c7c9f13d7f5993f6ac3e",
+      "receipt_sha256": "84a1a59608644f7057f66c9ff0f9720201175d4f95139f8bc8ba73de0cc1efbc",
+      "v2_config_sha256": "5cfb17236db0a2fd626881ccbeaf5ba84c408887f75bac5738bf6827b1177cf9"
+    },
+    "drone-iris-ardupilot-v4": {
+      "disposition": "WITHIN_DECLARED_MODEL",
+      "effect_sha256": "ec51f27f9af729a040004be94d5ec2101e7735f79e4d99f6758ff344c4f5d65e",
+      "receipt_sha256": "cbc33b9817870ab8391bee443075cb7f9b6a1004e39aed71c0a778730a3cce08",
+      "v2_config_sha256": "ea5ed17ae960825992161c41af03374965e8b423328ce5b1680631b2aca6a1e0"
+    },
+    "humanoid-nasa-valkyrie-v1": {
+      "disposition": "WITHIN_DECLARED_MODEL",
+      "effect_sha256": "f6d3a2457a1bebd922a07a27723ace73ada0ed943640aba433ae63d6af8770d2",
+      "receipt_sha256": "eb01009aac7bc4c115da24d0a8951938129d1b7ce3628314f2d626d4b0b291ce",
+      "v2_config_sha256": "f59ed7998a9291d4f6870d624d4731306cadab8154338b9ae1911c064080247f"
+    },
+    "hypersonic-x43a-v5": {
+      "disposition": "WITHIN_DECLARED_MODEL",
+      "effect_sha256": "abcf6d1252f490827fe7a4bc1a0c9f68d55a8bedb80af2beb82bbafb37c4bca4",
+      "receipt_sha256": "9d1e1ade23f9d126c6377d946b9cb209b14326bba9cc5025ede702e79f9d44af",
+      "v2_config_sha256": "3392d7147dd88480aa285ed19350a7c1fed12460095fb1196426bba81e8aa2c9"
+    },
+    "jackal-no-traction": {
+      "disposition": "CAPABILITY_LOST",
+      "effect_sha256": "62349d1572a474d38dc74287e40d4031286a613ccd7f99cf93801becd0ed2fa9",
+      "receipt_sha256": "e9922969d5e6f94e012dee03f9d71d46752549637d770e858ceaf3f2112ed564",
+      "v2_config_sha256": "a166d0dc26bbb2f5e903f9a3e617c0feb6f3b157ddedea2ba1fafe21d8060687"
+    },
+    "jackal-pi-traction": {
+      "disposition": "WITHIN_DECLARED_MODEL",
+      "effect_sha256": "c55cac1636a98f82a7733fff7763e6fa6cd90045c7fa6f54c8b9312fa1270985",
+      "receipt_sha256": "3ca45c46b5d4192954a309cef626356fd71db79b9ce628ca84fb98b61f5e836c",
+      "v2_config_sha256": "f64b41a9ca98fa14b82aa0f030903d7daadc5705a35449c583236876f4814e97"
+    },
+    "jet-airframe-nasa-gtm-v1": {
+      "disposition": "WITHIN_DECLARED_MODEL",
+      "effect_sha256": "ae323fb5872b14e521f9f1f7d72225f38b7a19efd2c88c711e31e8b10a9ecbe3",
+      "receipt_sha256": "88712ca69132ee1a619f207c47078c47839878fea66e6b3730983fc0f3f22aa8",
+      "v2_config_sha256": "b8b5fc7c3a02e90fc9f5773c8b200f2bbb44ac53ef57a072e18161ca153fa02c"
+    },
+    "launch-vehicle-blue-origin-new-glenn-v1": {
+      "disposition": "WITHIN_DECLARED_MODEL",
+      "effect_sha256": "e579aef88cfc9482768803032d65f6d5daef14aef56bd8f046c3c97a8b6ead19",
+      "receipt_sha256": "3d2debad30385126ed46ac8110683854d702388791f7c7f01d9ec09ffc50da56",
+      "v2_config_sha256": "cef8393a63e86e6af70725747e467d81ad517960df1987eec6e0f46981306dbd"
+    },
+    "maritime-remus100-v10": {
+      "disposition": "WITHIN_DECLARED_MODEL",
+      "effect_sha256": "05fcabd49d2156c36a41fced76ab97e214db1c52c244a30e171d64a760a29cb5",
+      "receipt_sha256": "b547fecb20d4de36c43f996bf9773873b8cd31159b7cfe504fd48e522fe98f31",
+      "v2_config_sha256": "32c3caa95a61e56c8bf24c0500cec07d8ea96f400c02686e6440f6b259db9603"
+    },
+    "nuclear-containment-iaea-nrc-v1": {
+      "disposition": "WITHIN_DECLARED_MODEL",
+      "effect_sha256": "17235cf8f521efee47191ecbe14756a7ea58a19b707feae6157a8db653f45486",
+      "receipt_sha256": "e5ec41f39f4946d7df5946796b7574d5c5b9a22d8b8553469c95e1c532fc6eab",
+      "v2_config_sha256": "c9096c9c27e5d95f5cf8bd16be53ffa742d81e0c05cda0a8364129dbddee63c8"
+    },
+    "orbital-coverage-earth-geometry-v1": {
+      "disposition": "WITHIN_DECLARED_MODEL",
+      "effect_sha256": "201bc0833f80e81455fb0a5e007090efa0edfbdcda36f2ce7cea831413a9f5c8",
+      "receipt_sha256": "5d20874ee9f7da3ebdc242f90499f1a3f3b21673193f0a3ffe024a9cda837563",
+      "v2_config_sha256": "c298d0121cfebad46d952a43fcdbbe09015aaa3947d72c6738ec5b7af7344978"
+    },
+    "orbital-dart-nextc-rosa-v4": {
+      "disposition": "LIMIT_EXCEEDED",
+      "effect_sha256": "5f11a74ae75f38d9c1833dab07538ac812c2979a84e16b95106eca0db732d5fc",
+      "receipt_sha256": "5edb3ee42d06a69d1b3a1bd46ee0af89ca278c03233781dfeaf448aec2c2d7a3",
+      "v2_config_sha256": "39456e662b6b9718f79370a309f25224795654954694a5c866d3db76cbf58fc0"
+    },
+    "panda-source": {
+      "disposition": "LIMIT_EXCEEDED",
+      "effect_sha256": "f8087f2fa020b8f8f59064d8cd07c918b7ec2fdd4088e769f3aec419d00959f6",
+      "receipt_sha256": "f1f0d07cba8dc05fc4f823e85a9e4e5084bac11c9dbb5aca5f8aab1254b71490",
+      "v2_config_sha256": "9dad67c25c8b81a4809d10748444da8fc2c36454e87f42688af860b6b197ceba"
+    },
+    "pi-loop-budget": {
+      "disposition": "LIMIT_EXCEEDED",
+      "effect_sha256": "f5a7ac882ee4d45a73411f3042dd46063d27e4fda6cf7903f6d65acced54e28e",
+      "receipt_sha256": "599c2e4216113d496c22a8202c8d8261edc299395bc29013510900ffa0cb3b82",
+      "v2_config_sha256": "4483365ad049d2df378fc3fa9c3c76b3b95469f5a790cb8daa75c6c663eca216"
+    },
+    "pi-thermal": {
+      "disposition": "POLICY_DEGRADED",
+      "effect_sha256": "95bd65db55127e4efbef3ac92ca3910ebe591d905da607c2317fac5d5151762b",
+      "receipt_sha256": "131252294dd5360837ef39ae14216e348b6ffdbc6769594c4cfd9b185c0defdb",
+      "v2_config_sha256": "6ce3ad04d994d63a8914496e17f34964c6c39b7b67bcd8382458db16e144f3e8"
+    },
+    "radar-low-rf-hf-vhf-uhf-v1": {
+      "disposition": "WITHIN_DECLARED_MODEL",
+      "effect_sha256": "60720dd854ccdc27f74b78a7a15753a15a2c5493918200ee50afebdb3b34f6ab",
+      "receipt_sha256": "db5275191819f4ba983ac8586ee6638acfe825491e52759e0675c58272e6c125",
+      "v2_config_sha256": "3721d06dd0df330458296a1dffb9071d3ad09205d8413e44b3d3c36bed88dba5"
+    },
+    "radar-xband-public-physics-v1": {
+      "disposition": "WITHIN_DECLARED_MODEL",
+      "effect_sha256": "a33bee3a069a36741878d6a0ca44cf732babaaa231e72fe323d67a8e5c13cad3",
+      "receipt_sha256": "7b3c282bd08561b1b0ca6c9bea4095539a7c5c02b9c13638d2cae2183ee15ab0",
+      "v2_config_sha256": "81e0aebd9f48efcfe3bb90784371c8e91d38a568d30254e77b364f4c7edfa69b"
+    },
+    "robotic-franka-panda-v4": {
+      "disposition": "WITHIN_DECLARED_MODEL",
+      "effect_sha256": "32bc1ded11c9f701c3adf64d47aa92ad71ebad8a04a1e4b51f2cd8f804d6f03f",
+      "receipt_sha256": "0f9f0896eba8419bbfbbff1be688cf193c25915d2c8facc8ddac054b63a61c95",
+      "v2_config_sha256": "fa1c1540f5a26bc592de702385750099ed134f150ca578fb1b5301e72f6978ac"
+    },
+    "ugv-clearpath-jackal-v3": {
+      "disposition": "WITHIN_DECLARED_MODEL",
+      "effect_sha256": "265b22dd106d3f14b5ae05da967bded06513cc142f8b104663a7aa571ba3e23c",
+      "receipt_sha256": "f89fa34ec1f8074740ceb8b4014fa6bd14e379cac134407d56dbf2167ed28d9c",
+      "v2_config_sha256": "da44207c4b4fdaa2f6171790fea7577d708f1c6e4a77221681ae08dec1d539b3"
+    },
+    "wetware-mammalian-operator-v1": {
+      "disposition": "WITHIN_DECLARED_MODEL",
+      "effect_sha256": "6110f2bd4cb949c52f6f91173a3abf513ce15f9e5188f893d64a53a59dbd1e92",
+      "receipt_sha256": "7b6815cbeb6e45adf35efbd6dcd487165b5dc5d4f23450e7ccac4073f391fbf1",
+      "v2_config_sha256": "8118c7bf540645a170f540f2798169caa45b3b34f1290b9582402e082643377f"
+    }
+  },
+  "status": "PASS"
+}

@@ -1,0 +1,17 @@
+version = 1
+name = "drone-iris-ardupilot-v4"
+generation = 1
+inputs = "teaching-fixture"
+time_s = 0
+wounds = []
+
+[substrate]
+id = "drone.iris_ardupilot.v4"
+overrides = []
+[substrate.parameters]
+max_thrust_n = 30
+mass_kg = 1.5
+gravity_m_s2 = 9.80665
+
+[observations]
+throttle_fraction = 0.75

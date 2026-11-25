@@ -1,0 +1,2451 @@
+[
+  {
+    "id": "radar.xband.public_physics.v1",
+    "aliases": [
+      "radar.xband.public_physics_replay.v1"
+    ],
+    "number": 1,
+    "title": "X-band radar",
+    "strategy": "radar",
+    "domain": "X_BAND_RADAR",
+    "sources": [
+      "RF"
+    ],
+    "version": "2.0.0",
+    "parameters": [
+      {
+        "name": "required_snr_db",
+        "unit": "dB",
+        "kind": "real",
+        "lower": -100,
+        "upper": 100,
+        "default": 10,
+        "basis": "POLICY",
+        "source": null,
+        "note": ""
+      }
+    ],
+    "inputs": [
+      {
+        "name": "frequency_hz",
+        "unit": "Hz",
+        "kind": "real",
+        "lower": 8000000000.0,
+        "upper": 12000000000.0,
+        "default": 10000000000.0,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "range_m",
+        "unit": "m",
+        "kind": "real",
+        "lower": 1,
+        "upper": 1000000000.0,
+        "default": 10000.0,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "bandwidth_hz",
+        "unit": "Hz",
+        "kind": "real",
+        "lower": 1,
+        "upper": 10000000000.0,
+        "default": 10000000.0,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "snr_db",
+        "unit": "dB",
+        "kind": "real",
+        "lower": -100,
+        "upper": 100,
+        "default": 15,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      }
+    ],
+    "outputs": {
+      "wavelength_m": "m",
+      "range_resolution_m": "m",
+      "free_space_loss_db": "dB",
+      "channel_capacity_bit_s": "bit/s",
+      "snr_margin_db": "dB"
+    },
+    "legacy_source_id": "radar.xband.public_physics.v1",
+    "facts": {},
+    "legacy_factory": "XBandRadarProfilePrimitive",
+    "legacy_module": "substrate_profiles_registry.profiles.x_band_radar_profile_primitive",
+    "fidelity": "ANALYTICAL_REDUCTION_WITH_EXPLICIT_SCENARIO_PARAMETERS",
+    "slug": "01_radar_xband"
+  },
+  {
+    "id": "radar.low_rf.hf_vhf_uhf.v1",
+    "aliases": [
+      "radar.low_rf.hf_vhf_uhf_public_replay.v1"
+    ],
+    "number": 2,
+    "title": "HF/VHF/UHF propagation",
+    "strategy": "radar",
+    "domain": "LOW_RF_RADAR",
+    "sources": [
+      "RF"
+    ],
+    "version": "2.0.0",
+    "parameters": [
+      {
+        "name": "required_snr_db",
+        "unit": "dB",
+        "kind": "real",
+        "lower": -100,
+        "upper": 100,
+        "default": 10,
+        "basis": "POLICY",
+        "source": null,
+        "note": ""
+      }
+    ],
+    "inputs": [
+      {
+        "name": "frequency_hz",
+        "unit": "Hz",
+        "kind": "real",
+        "lower": 3000000.0,
+        "upper": 3000000000.0,
+        "default": 30000000.0,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "range_m",
+        "unit": "m",
+        "kind": "real",
+        "lower": 1,
+        "upper": 1000000000.0,
+        "default": 10000.0,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "bandwidth_hz",
+        "unit": "Hz",
+        "kind": "real",
+        "lower": 1,
+        "upper": 10000000000.0,
+        "default": 100000.0,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "snr_db",
+        "unit": "dB",
+        "kind": "real",
+        "lower": -100,
+        "upper": 100,
+        "default": 15,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      }
+    ],
+    "outputs": {
+      "wavelength_m": "m",
+      "range_resolution_m": "m",
+      "free_space_loss_db": "dB",
+      "channel_capacity_bit_s": "bit/s",
+      "snr_margin_db": "dB"
+    },
+    "legacy_source_id": "radar.low_rf.hf_vhf_uhf.v1",
+    "facts": {},
+    "legacy_factory": "LowRFRadarProfilePrimitive",
+    "legacy_module": "substrate_profiles_registry.profiles.low_rf_radar_profile_primitive",
+    "fidelity": "ANALYTICAL_REDUCTION_WITH_EXPLICIT_SCENARIO_PARAMETERS",
+    "slug": "02_radar_low_rf"
+  },
+  {
+    "id": "orbital.coverage.earth_geometry.v1",
+    "aliases": [
+      "orbital.coverage.earth_geometry_public_replay.v1"
+    ],
+    "number": 3,
+    "title": "Orbital coverage",
+    "strategy": "coverage",
+    "domain": "ORBITAL_COVERAGE",
+    "sources": [
+      "JPL"
+    ],
+    "version": "2.0.0",
+    "parameters": [
+      {
+        "name": "radius_m",
+        "unit": "m",
+        "kind": "real",
+        "lower": 1000.0,
+        "upper": 1000000000.0,
+        "default": 6371000,
+        "basis": "CONVENTION",
+        "source": null,
+        "note": "Spherical mean-radius Earth approximation."
+      },
+      {
+        "name": "mu_m3_s2",
+        "unit": "m^3/s^2",
+        "kind": "real",
+        "lower": 1,
+        "upper": 1000000000000000.0,
+        "default": 398600435507000.0,
+        "basis": "PUBLISHED",
+        "source": "JPL",
+        "note": ""
+      }
+    ],
+    "inputs": [
+      {
+        "name": "altitude_m",
+        "unit": "m",
+        "kind": "real",
+        "lower": 1,
+        "upper": 100000000.0,
+        "default": 550000,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "elevation_deg",
+        "unit": "deg",
+        "kind": "real",
+        "lower": 0,
+        "upper": 90,
+        "default": 10,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      }
+    ],
+    "outputs": {
+      "orbital_period_s": "s",
+      "coverage_half_angle_rad": "rad",
+      "surface_fraction": "1",
+      "footprint_area_m2": "m^2"
+    },
+    "legacy_source_id": "orbital.coverage.earth_geometry.v1",
+    "facts": {},
+    "legacy_factory": "OrbitalCoverageProfilePrimitive",
+    "legacy_module": "substrate_profiles_registry.profiles.orbital_coverage_profile_primitive",
+    "fidelity": "ANALYTICAL_REDUCTION_WITH_EXPLICIT_SCENARIO_PARAMETERS",
+    "slug": "03_orbital_coverage"
+  },
+  {
+    "id": "nuclear.containment.iaea_nrc.v1",
+    "aliases": [
+      "nuclear.containment.iaea_nrc_public_replay_candidate.v1"
+    ],
+    "number": 4,
+    "title": "Containment energy balance",
+    "strategy": "containment",
+    "domain": "NUCLEAR_CONTAINMENT",
+    "sources": [
+      "CONTAINMENT"
+    ],
+    "version": "2.0.0",
+    "parameters": [
+      {
+        "name": "heat_removal_w",
+        "unit": "W",
+        "kind": "real",
+        "lower": 0,
+        "upper": 1000000000000.0,
+        "default": 1000000.0,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "thermal_capacity_j_k",
+        "unit": "J/K",
+        "kind": "real",
+        "lower": 1,
+        "upper": 1000000000000000.0,
+        "default": 100000000.0,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "temp_limit_k",
+        "unit": "K",
+        "kind": "real",
+        "lower": 1,
+        "upper": 100000.0,
+        "default": 400,
+        "basis": "POLICY",
+        "source": null,
+        "note": ""
+      }
+    ],
+    "inputs": [
+      {
+        "name": "heat_in_w",
+        "unit": "W",
+        "kind": "real",
+        "lower": 0,
+        "upper": 1000000000000.0,
+        "default": 1200000.0,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "initial_temp_k",
+        "unit": "K",
+        "kind": "real",
+        "lower": 1,
+        "upper": 100000.0,
+        "default": 300,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "duration_s",
+        "unit": "s",
+        "kind": "real",
+        "lower": 0,
+        "upper": 100000000.0,
+        "default": 100,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      }
+    ],
+    "outputs": {
+      "temperature_rate_k_s": "K/s",
+      "temperature_k": "K",
+      "thermal_margin_k": "K",
+      "time_to_limit_s": "s"
+    },
+    "legacy_source_id": "nuclear.containment.iaea_nrc.v1",
+    "facts": {},
+    "legacy_factory": "NuclearContainmentProfilePrimitive",
+    "legacy_module": "substrate_profiles_registry.profiles.nuclear_containment_profile_primitive",
+    "fidelity": "ANALYTICAL_REDUCTION_WITH_EXPLICIT_SCENARIO_PARAMETERS",
+    "slug": "04_nuclear_containment"
+  },
+  {
+    "id": "humanoid.nasa_valkyrie.v1",
+    "aliases": [
+      "humanoid.nasa_valkyrie_public_replay.v1"
+    ],
+    "number": 5,
+    "title": "Humanoid support and friction",
+    "strategy": "humanoid",
+    "domain": "HUMANOID",
+    "sources": [
+      "VALKYRIE"
+    ],
+    "version": "2.0.0",
+    "parameters": [
+      {
+        "name": "support_half_width_m",
+        "unit": "m",
+        "kind": "real",
+        "lower": 0.001,
+        "upper": 10,
+        "default": 0.15,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "gravity_m_s2",
+        "unit": "m/s^2",
+        "kind": "real",
+        "lower": 0.01,
+        "upper": 30,
+        "default": 9.80665,
+        "basis": "CONVENTION",
+        "source": null,
+        "note": ""
+      }
+    ],
+    "inputs": [
+      {
+        "name": "com_height_m",
+        "unit": "m",
+        "kind": "real",
+        "lower": 0.01,
+        "upper": 10,
+        "default": 1,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "com_x_m",
+        "unit": "m",
+        "kind": "real",
+        "lower": -10,
+        "upper": 10,
+        "default": 0.02,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "com_velocity_m_s",
+        "unit": "m/s",
+        "kind": "real",
+        "lower": -10,
+        "upper": 10,
+        "default": 0.2,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "friction_coefficient",
+        "unit": "1",
+        "kind": "real",
+        "lower": 0,
+        "upper": 3,
+        "default": 0.6,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "normal_force_n",
+        "unit": "N",
+        "kind": "real",
+        "lower": 0,
+        "upper": 100000.0,
+        "default": 1000,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "tangent_force_n",
+        "unit": "N",
+        "kind": "real",
+        "lower": -100000.0,
+        "upper": 100000.0,
+        "default": 100,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      }
+    ],
+    "outputs": {
+      "capture_point_m": "m",
+      "support_margin_m": "m",
+      "friction_margin_n": "N"
+    },
+    "legacy_source_id": "humanoid.nasa_valkyrie.v1",
+    "facts": {},
+    "legacy_factory": "HumanoidProfilePrimitive",
+    "legacy_module": "substrate_profiles_registry.profiles.humanoid_profile_primitive",
+    "fidelity": "ANALYTICAL_REDUCTION_WITH_EXPLICIT_SCENARIO_PARAMETERS",
+    "slug": "05_humanoid_nasa_valkyrie"
+  },
+  {
+    "id": "asv.surface_vessel.v1",
+    "aliases": [
+      "asv.otter_mss_public_replay.v1"
+    ],
+    "number": 6,
+    "title": "Surface vessel thrust and drag",
+    "strategy": "vessel",
+    "domain": "ASV",
+    "sources": [
+      "MSS"
+    ],
+    "version": "2.0.0",
+    "parameters": [
+      {
+        "name": "density_kg_m3",
+        "unit": "kg/m^3",
+        "kind": "real",
+        "lower": 900,
+        "upper": 1200,
+        "default": 1025,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "drag_area_m2",
+        "unit": "m^2",
+        "kind": "real",
+        "lower": 0.001,
+        "upper": 100,
+        "default": 0.12,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "thrust_n",
+        "unit": "N",
+        "kind": "real",
+        "lower": 0,
+        "upper": 100000.0,
+        "default": 220,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "mass_kg",
+        "unit": "kg",
+        "kind": "real",
+        "lower": 0.1,
+        "upper": 100000.0,
+        "default": 80,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      }
+    ],
+    "inputs": [
+      {
+        "name": "speed_m_s",
+        "unit": "m/s",
+        "kind": "real",
+        "lower": 0,
+        "upper": 20,
+        "default": 1.2,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "throttle_fraction",
+        "unit": "1",
+        "kind": "real",
+        "lower": 0,
+        "upper": 1,
+        "default": 0.5,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      }
+    ],
+    "outputs": {
+      "drag_n": "N",
+      "net_force_n": "N",
+      "acceleration_m_s2": "m/s^2",
+      "propulsive_power_w": "W"
+    },
+    "legacy_source_id": "asv.surface_vessel.v1",
+    "facts": {},
+    "legacy_factory": "ASVProfilePrimitive",
+    "legacy_module": "substrate_profiles_registry.profiles.asv_profile_primitive",
+    "fidelity": "ANALYTICAL_REDUCTION_WITH_EXPLICIT_SCENARIO_PARAMETERS",
+    "slug": "06_asv_surface_vessel"
+  },
+  {
+    "id": "jet.airframe.nasa_gtm.v1",
+    "aliases": [
+      "jet.airframe.nasa_gtm_tcm_public_replay.v1"
+    ],
+    "number": 7,
+    "title": "Jet airframe loads",
+    "strategy": "aircraft",
+    "domain": "JET_AIRFRAME",
+    "sources": [
+      "GTM"
+    ],
+    "version": "2.0.0",
+    "parameters": [
+      {
+        "name": "area_m2",
+        "unit": "m^2",
+        "kind": "real",
+        "lower": 0.001,
+        "upper": 10000.0,
+        "default": 1,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "q_limit_pa",
+        "unit": "Pa",
+        "kind": "real",
+        "lower": 1,
+        "upper": 100000000.0,
+        "default": 50000,
+        "basis": "POLICY",
+        "source": null,
+        "note": ""
+      }
+    ],
+    "inputs": [
+      {
+        "name": "density_kg_m3",
+        "unit": "kg/m^3",
+        "kind": "real",
+        "lower": 0,
+        "upper": 10,
+        "default": 0.2,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "speed_m_s",
+        "unit": "m/s",
+        "kind": "real",
+        "lower": 0,
+        "upper": 5000,
+        "default": 200,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "lift_coefficient",
+        "unit": "1",
+        "kind": "real",
+        "lower": -5,
+        "upper": 5,
+        "default": 0.5,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "drag_coefficient",
+        "unit": "1",
+        "kind": "real",
+        "lower": 0,
+        "upper": 5,
+        "default": 0.1,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      }
+    ],
+    "outputs": {
+      "dynamic_pressure_pa": "Pa",
+      "lift_n": "N",
+      "drag_n": "N",
+      "load_margin_pa": "Pa"
+    },
+    "legacy_source_id": "jet.airframe.nasa_gtm.v1",
+    "facts": {},
+    "legacy_factory": "JetAirframeProfilePrimitive",
+    "legacy_module": "substrate_profiles_registry.profiles.jet_airframe_profile_primitive",
+    "fidelity": "ANALYTICAL_REDUCTION_WITH_EXPLICIT_SCENARIO_PARAMETERS",
+    "slug": "07_jet_airframe"
+  },
+  {
+    "id": "wetware.mammalian.operator.v1",
+    "aliases": [
+      "neuroscience.tier1_mammalian_wetware_human_k9.v1"
+    ],
+    "number": 8,
+    "title": "Synthetic operator workload",
+    "strategy": "workload",
+    "domain": "NEUROSCIENCE_WETWARE",
+    "sources": [],
+    "version": "2.0.0",
+    "parameters": [
+      {
+        "name": "recovery_time_s",
+        "unit": "s",
+        "kind": "real",
+        "lower": 0.001,
+        "upper": 100000000.0,
+        "default": 1200,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "load_gain",
+        "unit": "1",
+        "kind": "real",
+        "lower": 0,
+        "upper": 1,
+        "default": 1,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "load_limit",
+        "unit": "1",
+        "kind": "real",
+        "lower": 0,
+        "upper": 1,
+        "default": 0.7,
+        "basis": "POLICY",
+        "source": null,
+        "note": ""
+      }
+    ],
+    "inputs": [
+      {
+        "name": "load_fraction",
+        "unit": "1",
+        "kind": "real",
+        "lower": 0,
+        "upper": 1,
+        "default": 0.8,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "initial_load",
+        "unit": "1",
+        "kind": "real",
+        "lower": 0,
+        "upper": 1,
+        "default": 0.2,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "duration_s",
+        "unit": "s",
+        "kind": "real",
+        "lower": 0,
+        "upper": 100000000.0,
+        "default": 1200,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      }
+    ],
+    "outputs": {
+      "synthetic_load_state": "1",
+      "policy_margin": "1"
+    },
+    "legacy_source_id": "wetware.mammalian.operator.v1",
+    "facts": {
+      "biological_calibration": "Not established; human and canine parameters are not interchangeable."
+    },
+    "legacy_factory": "NeuroscienceWetwareProfilePrimitive",
+    "legacy_module": "substrate_profiles_registry.profiles.neuroscience_profile_primitive",
+    "fidelity": "SYNTHETIC_ONLY",
+    "slug": "08_wetware_mammalian"
+  },
+  {
+    "id": "maritime.remus100.v10",
+    "aliases": [
+      "maritime.remus100_prestero_acoustic_ssot_synthetic_gt.v10"
+    ],
+    "number": 9,
+    "title": "REMUS hydrodynamic reduction",
+    "strategy": "vessel",
+    "domain": "MARITIME",
+    "sources": [
+      "REMUS"
+    ],
+    "version": "2.0.0",
+    "parameters": [
+      {
+        "name": "density_kg_m3",
+        "unit": "kg/m^3",
+        "kind": "real",
+        "lower": 900,
+        "upper": 1200,
+        "default": 1025,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "drag_area_m2",
+        "unit": "m^2",
+        "kind": "real",
+        "lower": 0.001,
+        "upper": 100,
+        "default": 0.12,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "thrust_n",
+        "unit": "N",
+        "kind": "real",
+        "lower": 0,
+        "upper": 100000.0,
+        "default": 220,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "mass_kg",
+        "unit": "kg",
+        "kind": "real",
+        "lower": 0.1,
+        "upper": 100000.0,
+        "default": 31.9,
+        "basis": "PUBLISHED",
+        "source": "REMUS",
+        "note": ""
+      }
+    ],
+    "inputs": [
+      {
+        "name": "speed_m_s",
+        "unit": "m/s",
+        "kind": "real",
+        "lower": 0,
+        "upper": 20,
+        "default": 1.2,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "throttle_fraction",
+        "unit": "1",
+        "kind": "real",
+        "lower": 0,
+        "upper": 1,
+        "default": 0.5,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      }
+    ],
+    "outputs": {
+      "drag_n": "N",
+      "net_force_n": "N",
+      "acceleration_m_s2": "m/s^2",
+      "propulsive_power_w": "W"
+    },
+    "legacy_source_id": "maritime.remus100.v10",
+    "facts": {},
+    "legacy_factory": "MaritimeProfilePrimitive.from_prestero_and_acoustic_truth_dicts",
+    "legacy_module": "substrate_profiles_registry.profiles.maritime_profile_primitive",
+    "fidelity": "ANALYTICAL_REDUCTION_WITH_EXPLICIT_SCENARIO_PARAMETERS",
+    "slug": "09_maritime_remus100"
+  },
+  {
+    "id": "orbital.dart_nextc_rosa.v4",
+    "aliases": [
+      "orbital.dart_nextc_rosa_smartnav_truth_replay.v4"
+    ],
+    "number": 10,
+    "title": "Spacecraft power and small burns",
+    "strategy": "spacecraft",
+    "domain": "ORBITAL",
+    "sources": [
+      "DART"
+    ],
+    "version": "2.0.0",
+    "parameters": [
+      {
+        "name": "array_power_w",
+        "unit": "W",
+        "kind": "real",
+        "lower": 0,
+        "upper": 10000000.0,
+        "default": 6600,
+        "basis": "LEGACY_ASSUMPTION",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "thrust_n",
+        "unit": "N",
+        "kind": "real",
+        "lower": 0,
+        "upper": 10000.0,
+        "default": 0.235,
+        "basis": "LEGACY_ASSUMPTION",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "mass_kg",
+        "unit": "kg",
+        "kind": "real",
+        "lower": 1,
+        "upper": 10000000.0,
+        "default": 600,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      }
+    ],
+    "inputs": [
+      {
+        "name": "eclipse_fraction",
+        "unit": "1",
+        "kind": "real",
+        "lower": 0,
+        "upper": 1,
+        "default": 0.2,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "sun_angle_deg",
+        "unit": "deg",
+        "kind": "real",
+        "lower": 0,
+        "upper": 180,
+        "default": 30,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "load_w",
+        "unit": "W",
+        "kind": "real",
+        "lower": 0,
+        "upper": 10000000.0,
+        "default": 5000,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "usable_energy_wh",
+        "unit": "Wh",
+        "kind": "real",
+        "lower": 0,
+        "upper": 1000000000.0,
+        "default": 1000,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "burn_duration_s",
+        "unit": "s",
+        "kind": "real",
+        "lower": 0,
+        "upper": 1000000.0,
+        "default": 10,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      }
+    ],
+    "outputs": {
+      "available_power_w": "W",
+      "power_margin_w": "W",
+      "small_burn_delta_v_m_s": "m/s",
+      "reserve_time_s": "s"
+    },
+    "legacy_source_id": "orbital.dart_nextc_rosa.v4",
+    "facts": {},
+    "legacy_factory": "OrbitalProfilePrimitive.from_dart_reconstruction_dict",
+    "legacy_module": "substrate_profiles_registry.profiles.orbital_profile_primitive",
+    "fidelity": "ANALYTICAL_REDUCTION_WITH_EXPLICIT_SCENARIO_PARAMETERS",
+    "slug": "10_orbital_dart_nextc_rosa"
+  },
+  {
+    "id": "drone.iris_ardupilot.v4",
+    "aliases": [
+      "drone.iris_ardupilot_public_log_evidence_plus.v4"
+    ],
+    "number": 11,
+    "title": "Iris thrust and weight",
+    "strategy": "rotorcraft",
+    "domain": "DRONE_SWARM",
+    "sources": [
+      "IRIS"
+    ],
+    "version": "2.0.0",
+    "parameters": [
+      {
+        "name": "max_thrust_n",
+        "unit": "N",
+        "kind": "real",
+        "lower": 0,
+        "upper": 10000.0,
+        "default": 30,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "mass_kg",
+        "unit": "kg",
+        "kind": "real",
+        "lower": 0.01,
+        "upper": 1000.0,
+        "default": 1.5,
+        "basis": "LEGACY_ASSUMPTION",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "gravity_m_s2",
+        "unit": "m/s^2",
+        "kind": "real",
+        "lower": 0.01,
+        "upper": 30,
+        "default": 9.80665,
+        "basis": "CONVENTION",
+        "source": null,
+        "note": ""
+      }
+    ],
+    "inputs": [
+      {
+        "name": "throttle_fraction",
+        "unit": "1",
+        "kind": "real",
+        "lower": 0,
+        "upper": 1,
+        "default": 0.75,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      }
+    ],
+    "outputs": {
+      "thrust_n": "N",
+      "weight_n": "N",
+      "vertical_acceleration_m_s2": "m/s^2",
+      "thrust_margin_n": "N"
+    },
+    "legacy_source_id": "drone.iris_ardupilot.v4",
+    "facts": {},
+    "legacy_factory": "DroneSwarmProfilePrimitive.from_iris_sitl_profile_dict",
+    "legacy_module": "substrate_profiles_registry.profiles.drone_swarm_profile_primitive",
+    "fidelity": "ANALYTICAL_REDUCTION_WITH_EXPLICIT_SCENARIO_PARAMETERS",
+    "slug": "11_drone_iris_ardupilot"
+  },
+  {
+    "id": "robotic.franka_panda.v4",
+    "aliases": [
+      "robotic.franka_panda_public_evidence_plus.v4"
+    ],
+    "number": 12,
+    "title": "Panda joint limits and tracking",
+    "strategy": "manipulator",
+    "domain": "ROBOTIC_MANIPULATOR",
+    "sources": [
+      "PANDA",
+      "PANDA-STATE"
+    ],
+    "version": "2.0.0",
+    "parameters": [
+      {
+        "name": "torque_limits_nm",
+        "unit": "N*m",
+        "kind": "vector7",
+        "lower": 0.001,
+        "upper": 1000,
+        "default": [
+          87,
+          87,
+          87,
+          87,
+          12,
+          12,
+          12
+        ],
+        "basis": "PUBLISHED",
+        "source": "PANDA",
+        "note": ""
+      }
+    ],
+    "inputs": [
+      {
+        "name": "joint_torque_nm",
+        "unit": "N*m",
+        "kind": "vector7",
+        "lower": -1000,
+        "upper": 1000,
+        "default": [
+          10,
+          10,
+          10,
+          10,
+          2,
+          2,
+          2
+        ],
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "measured_joint_rad",
+        "unit": "rad",
+        "kind": "vector7",
+        "lower": -10,
+        "upper": 10,
+        "default": [
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01
+        ],
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "desired_joint_rad",
+        "unit": "rad",
+        "kind": "vector7",
+        "lower": -10,
+        "upper": 10,
+        "default": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      }
+    ],
+    "outputs": {
+      "joint_torque_margin_nm": "N*m",
+      "minimum_torque_margin_nm": "N*m",
+      "tracking_error_rad": "rad",
+      "maximum_tracking_error_rad": "rad"
+    },
+    "legacy_source_id": "robotic.franka_panda.v4",
+    "facts": {},
+    "legacy_factory": "RoboticManipulatorProfilePrimitive.from_panda_dynamics_dict",
+    "legacy_module": "substrate_profiles_registry.profiles.robotic_manipulator_profile_primitive",
+    "fidelity": "ANALYTICAL_REDUCTION_WITH_EXPLICIT_SCENARIO_PARAMETERS",
+    "slug": "12_robotic_franka_panda"
+  },
+  {
+    "id": "ugv.clearpath_jackal.v3",
+    "aliases": [
+      "ugv.clearpath_jackal_public_evidence_plus.v3"
+    ],
+    "number": 13,
+    "title": "Jackal stopping and traction",
+    "strategy": "ground",
+    "domain": "UGV",
+    "sources": [
+      "JACKAL"
+    ],
+    "version": "2.0.0",
+    "parameters": [
+      {
+        "name": "brake_decel_m_s2",
+        "unit": "m/s^2",
+        "kind": "real",
+        "lower": 0.001,
+        "upper": 30,
+        "default": 1,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "latency_s",
+        "unit": "s",
+        "kind": "real",
+        "lower": 0,
+        "upper": 100,
+        "default": 0.1,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "track_m",
+        "unit": "m",
+        "kind": "real",
+        "lower": 0.01,
+        "upper": 10,
+        "default": 0.3755,
+        "basis": "LEGACY_ASSUMPTION",
+        "source": null,
+        "note": ""
+      }
+    ],
+    "inputs": [
+      {
+        "name": "speed_m_s",
+        "unit": "m/s",
+        "kind": "real",
+        "lower": -2,
+        "upper": 2,
+        "default": 1.2,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "traction_fraction",
+        "unit": "1",
+        "kind": "real",
+        "lower": 0,
+        "upper": 1,
+        "default": 1,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "clearance_m",
+        "unit": "m",
+        "kind": "real",
+        "lower": 0,
+        "upper": 10000.0,
+        "default": 3,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "left_wheel_m_s",
+        "unit": "m/s",
+        "kind": "real",
+        "lower": -2,
+        "upper": 2,
+        "default": 1.1,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "right_wheel_m_s",
+        "unit": "m/s",
+        "kind": "real",
+        "lower": -2,
+        "upper": 2,
+        "default": 1.3,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      }
+    ],
+    "outputs": {
+      "stopping_distance_m": "m",
+      "clearance_margin_m": "m",
+      "yaw_rate_rad_s": "rad/s",
+      "wheel_speed_residual_m_s": "m/s"
+    },
+    "legacy_source_id": "ugv.clearpath_jackal.v3",
+    "facts": {
+      "mass_kg": {
+        "value": 17,
+        "source": "JACKAL-MASS"
+      },
+      "max_payload_kg": {
+        "value": 20,
+        "source": "JACKAL"
+      }
+    },
+    "legacy_factory": "UGVProfilePrimitive.from_jackal_profile_dict",
+    "legacy_module": "substrate_profiles_registry.profiles.ugv_profile_primitive",
+    "fidelity": "ANALYTICAL_REDUCTION_WITH_EXPLICIT_SCENARIO_PARAMETERS",
+    "slug": "13_ugv_clearpath_jackal"
+  },
+  {
+    "id": "hypersonic.x43a.v5",
+    "aliases": [
+      "hypersonic.x43a_public_lattice_evidence_plus.v5"
+    ],
+    "number": 14,
+    "title": "X-43A aerodynamic load reduction",
+    "strategy": "aircraft",
+    "domain": "HYPERSONIC",
+    "sources": [
+      "X43"
+    ],
+    "version": "2.0.0",
+    "parameters": [
+      {
+        "name": "area_m2",
+        "unit": "m^2",
+        "kind": "real",
+        "lower": 0.001,
+        "upper": 10000.0,
+        "default": 1,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "q_limit_pa",
+        "unit": "Pa",
+        "kind": "real",
+        "lower": 1,
+        "upper": 100000000.0,
+        "default": 50000,
+        "basis": "POLICY",
+        "source": null,
+        "note": ""
+      }
+    ],
+    "inputs": [
+      {
+        "name": "density_kg_m3",
+        "unit": "kg/m^3",
+        "kind": "real",
+        "lower": 0,
+        "upper": 10,
+        "default": 0.02,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "speed_m_s",
+        "unit": "m/s",
+        "kind": "real",
+        "lower": 0,
+        "upper": 5000,
+        "default": 2000,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "lift_coefficient",
+        "unit": "1",
+        "kind": "real",
+        "lower": -5,
+        "upper": 5,
+        "default": 0.5,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "drag_coefficient",
+        "unit": "1",
+        "kind": "real",
+        "lower": 0,
+        "upper": 5,
+        "default": 0.1,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      }
+    ],
+    "outputs": {
+      "dynamic_pressure_pa": "Pa",
+      "lift_n": "N",
+      "drag_n": "N",
+      "load_margin_pa": "Pa"
+    },
+    "legacy_source_id": "hypersonic.x43a.v5",
+    "facts": {},
+    "legacy_factory": "HypersonicProfilePrimitive.from_x43_baseline_dict",
+    "legacy_module": "substrate_profiles_registry.profiles.hypersonic_profile_primitive",
+    "fidelity": "ANALYTICAL_REDUCTION_WITH_EXPLICIT_SCENARIO_PARAMETERS",
+    "slug": "14_hypersonic_x43a"
+  },
+  {
+    "id": "controller.raspberry_pi5_8gb.v1",
+    "aliases": [
+      "raspberry_pi5_8gb"
+    ],
+    "number": 15,
+    "title": "Raspberry Pi 5 compute policy",
+    "strategy": "compute",
+    "domain": "HARDWARE_CONTROLLER",
+    "sources": [
+      "PI"
+    ],
+    "version": "2.0.0",
+    "parameters": [
+      {
+        "name": "alternate_c",
+        "unit": "degC",
+        "kind": "real",
+        "lower": -50,
+        "upper": 150,
+        "default": 70,
+        "basis": "POLICY",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "contingency_c",
+        "unit": "degC",
+        "kind": "real",
+        "lower": -50,
+        "upper": 150,
+        "default": 78,
+        "basis": "POLICY",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "terminal_c",
+        "unit": "degC",
+        "kind": "real",
+        "lower": -50,
+        "upper": 150,
+        "default": 85,
+        "basis": "POLICY",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "alternate_memory",
+        "unit": "1",
+        "kind": "real",
+        "lower": 0,
+        "upper": 1,
+        "default": 0.75,
+        "basis": "POLICY",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "contingency_memory",
+        "unit": "1",
+        "kind": "real",
+        "lower": 0,
+        "upper": 1,
+        "default": 0.88,
+        "basis": "POLICY",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "terminal_memory",
+        "unit": "1",
+        "kind": "real",
+        "lower": 0,
+        "upper": 1,
+        "default": 0.94,
+        "basis": "POLICY",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "loop_budget_s",
+        "unit": "s",
+        "kind": "real",
+        "lower": 1e-06,
+        "upper": 100,
+        "default": 0.25,
+        "basis": "POLICY",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "queue_limit_items",
+        "unit": "count",
+        "kind": "integer",
+        "lower": 1,
+        "upper": 1000000.0,
+        "default": 128,
+        "basis": "POLICY",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "latency_s",
+        "unit": "s",
+        "kind": "real",
+        "lower": 0,
+        "upper": 100,
+        "default": 0.01,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "thermal_onset_c",
+        "unit": "degC",
+        "kind": "real",
+        "lower": -50,
+        "upper": 150,
+        "default": 80,
+        "basis": "PUBLISHED",
+        "source": "PI",
+        "note": "Delay mapping remains scenario-only, even when onset is published."
+      },
+      {
+        "name": "delay_s_per_k",
+        "unit": "s/K",
+        "kind": "real",
+        "lower": 0,
+        "upper": 1,
+        "default": 0.01,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": "Measure scheduling latency against temperature before physical reuse."
+      }
+    ],
+    "inputs": [
+      {
+        "name": "temperature_c",
+        "unit": "degC",
+        "kind": "real",
+        "lower": -50,
+        "upper": 150,
+        "default": 45,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "memory_fraction",
+        "unit": "1",
+        "kind": "real",
+        "lower": 0,
+        "upper": 1,
+        "default": 0.35,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "loop_time_s",
+        "unit": "s",
+        "kind": "real",
+        "lower": 0,
+        "upper": 100,
+        "default": 0.05,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "queue_items",
+        "unit": "count",
+        "kind": "integer",
+        "lower": 0,
+        "upper": 1000000.0,
+        "default": 5,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      }
+    ],
+    "outputs": {
+      "policy_state": "category",
+      "thermal_margin_k": "K",
+      "memory_margin_fraction": "1",
+      "loop_margin_s": "s",
+      "queue_margin_items": "count",
+      "estimated_latency_s": "s"
+    },
+    "legacy_source_id": "controller.raspberry_pi5_8gb.v1",
+    "facts": {},
+    "legacy_factory": "RaspberryPi5ProfilePrimitive",
+    "legacy_module": "substrate_profiles_registry.profiles.raspberry_pi5_8gb_profile_primitive",
+    "fidelity": "ANALYTICAL_REDUCTION_WITH_EXPLICIT_SCENARIO_PARAMETERS",
+    "slug": "15_controller_raspberry_pi5_8gb"
+  },
+  {
+    "id": "controller.jetson_orin_nano_8gb.v1",
+    "aliases": [
+      "jetson_orin_nano_8gb"
+    ],
+    "number": 16,
+    "title": "Jetson Orin Nano compute policy",
+    "strategy": "compute",
+    "domain": "HARDWARE_CONTROLLER",
+    "sources": [
+      "JETSON"
+    ],
+    "version": "2.0.0",
+    "parameters": [
+      {
+        "name": "alternate_c",
+        "unit": "degC",
+        "kind": "real",
+        "lower": -50,
+        "upper": 150,
+        "default": 74,
+        "basis": "POLICY",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "contingency_c",
+        "unit": "degC",
+        "kind": "real",
+        "lower": -50,
+        "upper": 150,
+        "default": 84,
+        "basis": "POLICY",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "terminal_c",
+        "unit": "degC",
+        "kind": "real",
+        "lower": -50,
+        "upper": 150,
+        "default": 90,
+        "basis": "POLICY",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "alternate_memory",
+        "unit": "1",
+        "kind": "real",
+        "lower": 0,
+        "upper": 1,
+        "default": 0.8,
+        "basis": "POLICY",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "contingency_memory",
+        "unit": "1",
+        "kind": "real",
+        "lower": 0,
+        "upper": 1,
+        "default": 0.9,
+        "basis": "POLICY",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "terminal_memory",
+        "unit": "1",
+        "kind": "real",
+        "lower": 0,
+        "upper": 1,
+        "default": 0.96,
+        "basis": "POLICY",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "loop_budget_s",
+        "unit": "s",
+        "kind": "real",
+        "lower": 1e-06,
+        "upper": 100,
+        "default": 0.25,
+        "basis": "POLICY",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "queue_limit_items",
+        "unit": "count",
+        "kind": "integer",
+        "lower": 1,
+        "upper": 1000000.0,
+        "default": 256,
+        "basis": "POLICY",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "latency_s",
+        "unit": "s",
+        "kind": "real",
+        "lower": 0,
+        "upper": 100,
+        "default": 0.01,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "thermal_onset_c",
+        "unit": "degC",
+        "kind": "real",
+        "lower": -50,
+        "upper": 150,
+        "default": 85,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": "Delay mapping remains scenario-only, even when onset is published."
+      },
+      {
+        "name": "delay_s_per_k",
+        "unit": "s/K",
+        "kind": "real",
+        "lower": 0,
+        "upper": 1,
+        "default": 0.01,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": "Measure scheduling latency against temperature before physical reuse."
+      }
+    ],
+    "inputs": [
+      {
+        "name": "temperature_c",
+        "unit": "degC",
+        "kind": "real",
+        "lower": -50,
+        "upper": 150,
+        "default": 45,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "memory_fraction",
+        "unit": "1",
+        "kind": "real",
+        "lower": 0,
+        "upper": 1,
+        "default": 0.35,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "loop_time_s",
+        "unit": "s",
+        "kind": "real",
+        "lower": 0,
+        "upper": 100,
+        "default": 0.05,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "queue_items",
+        "unit": "count",
+        "kind": "integer",
+        "lower": 0,
+        "upper": 1000000.0,
+        "default": 5,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      }
+    ],
+    "outputs": {
+      "policy_state": "category",
+      "thermal_margin_k": "K",
+      "memory_margin_fraction": "1",
+      "loop_margin_s": "s",
+      "queue_margin_items": "count",
+      "estimated_latency_s": "s"
+    },
+    "legacy_source_id": "controller.jetson_orin_nano_8gb.v1",
+    "facts": {
+      "power_mode": "Select original 7/15 W or JetPack 6.2 Super configuration explicitly in a derivative; no generic thermal calibration."
+    },
+    "legacy_factory": "JetsonOrinNano8GBProfilePrimitive",
+    "legacy_module": "substrate_profiles_registry.profiles.jetson_orin_nano_8gb_profile_primitive",
+    "fidelity": "ANALYTICAL_REDUCTION_WITH_EXPLICIT_SCENARIO_PARAMETERS",
+    "slug": "16_controller_jetson_orin_nano_8gb"
+  },
+  {
+    "id": "controller.tda4vm_custom_8gb.v2",
+    "aliases": [],
+    "number": 17,
+    "title": "TDA4VM custom 8 GB target",
+    "strategy": "compute",
+    "domain": "HARDWARE_CONTROLLER",
+    "sources": [
+      "AI64"
+    ],
+    "version": "2.0.0",
+    "parameters": [
+      {
+        "name": "alternate_c",
+        "unit": "degC",
+        "kind": "real",
+        "lower": -50,
+        "upper": 150,
+        "default": 85,
+        "basis": "POLICY",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "contingency_c",
+        "unit": "degC",
+        "kind": "real",
+        "lower": -50,
+        "upper": 150,
+        "default": 95,
+        "basis": "POLICY",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "terminal_c",
+        "unit": "degC",
+        "kind": "real",
+        "lower": -50,
+        "upper": 150,
+        "default": 105,
+        "basis": "POLICY",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "alternate_memory",
+        "unit": "1",
+        "kind": "real",
+        "lower": 0,
+        "upper": 1,
+        "default": 0.75,
+        "basis": "POLICY",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "contingency_memory",
+        "unit": "1",
+        "kind": "real",
+        "lower": 0,
+        "upper": 1,
+        "default": 0.88,
+        "basis": "POLICY",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "terminal_memory",
+        "unit": "1",
+        "kind": "real",
+        "lower": 0,
+        "upper": 1,
+        "default": 0.94,
+        "basis": "POLICY",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "loop_budget_s",
+        "unit": "s",
+        "kind": "real",
+        "lower": 1e-06,
+        "upper": 100,
+        "default": 0.25,
+        "basis": "POLICY",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "queue_limit_items",
+        "unit": "count",
+        "kind": "integer",
+        "lower": 1,
+        "upper": 1000000.0,
+        "default": 128,
+        "basis": "POLICY",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "latency_s",
+        "unit": "s",
+        "kind": "real",
+        "lower": 0,
+        "upper": 100,
+        "default": 0.01,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "thermal_onset_c",
+        "unit": "degC",
+        "kind": "real",
+        "lower": -50,
+        "upper": 150,
+        "default": 85,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": "Delay mapping remains scenario-only, even when onset is published."
+      },
+      {
+        "name": "delay_s_per_k",
+        "unit": "s/K",
+        "kind": "real",
+        "lower": 0,
+        "upper": 1,
+        "default": 0.01,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": "Measure scheduling latency against temperature before physical reuse."
+      }
+    ],
+    "inputs": [
+      {
+        "name": "temperature_c",
+        "unit": "degC",
+        "kind": "real",
+        "lower": -50,
+        "upper": 150,
+        "default": 45,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "memory_fraction",
+        "unit": "1",
+        "kind": "real",
+        "lower": 0,
+        "upper": 1,
+        "default": 0.35,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "loop_time_s",
+        "unit": "s",
+        "kind": "real",
+        "lower": 0,
+        "upper": 100,
+        "default": 0.05,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "queue_items",
+        "unit": "count",
+        "kind": "integer",
+        "lower": 0,
+        "upper": 1000000.0,
+        "default": 5,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      }
+    ],
+    "outputs": {
+      "policy_state": "category",
+      "thermal_margin_k": "K",
+      "memory_margin_fraction": "1",
+      "loop_margin_s": "s",
+      "queue_margin_items": "count",
+      "estimated_latency_s": "s"
+    },
+    "legacy_source_id": "controller.tda4vm_am68a_8gb.v1",
+    "facts": {
+      "silicon": "TDA4VM",
+      "board": "custom engineering target",
+      "memory_gb": 8,
+      "r5f_silicon_cores": 6,
+      "source": "AI64",
+      "memory_evidence": "SCENARIO; not BeagleBone AI-64"
+    },
+    "legacy_factory": "TDA4VMAM68A8GBProfilePrimitive",
+    "legacy_module": "substrate_profiles_registry.profiles.tda4vm_am68a_8gb_profile_primitive",
+    "fidelity": "ANALYTICAL_REDUCTION_WITH_EXPLICIT_SCENARIO_PARAMETERS",
+    "slug": "17_controller_tda4vm_custom_8gb",
+    "retired_ambiguous_aliases": [
+      "tda4vm_am68a_8gb_safety_hybrid",
+      "controller.tda4vm_am68a_8gb.v1"
+    ]
+  },
+  {
+    "id": "launch_vehicle.blue_origin_new_glenn.v1",
+    "aliases": [
+      "launch_vehicle.blue_origin_new_glenn.public_replay_candidate.v1"
+    ],
+    "number": 18,
+    "title": "New Glenn stage thrust balance",
+    "strategy": "launch",
+    "domain": "LAUNCH_VEHICLE",
+    "sources": [
+      "NG"
+    ],
+    "version": "2.0.0",
+    "parameters": [
+      {
+        "name": "engine_count",
+        "unit": "count",
+        "kind": "integer",
+        "lower": 1,
+        "upper": 9,
+        "default": 7,
+        "basis": "PUBLISHED",
+        "source": "NG",
+        "note": ""
+      },
+      {
+        "name": "engine_thrust_n",
+        "unit": "N",
+        "kind": "real",
+        "lower": 0,
+        "upper": 10000000.0,
+        "default": 2846000,
+        "basis": "PUBLISHED",
+        "source": "BO",
+        "note": ""
+      },
+      {
+        "name": "gravity_m_s2",
+        "unit": "m/s^2",
+        "kind": "real",
+        "lower": 0.01,
+        "upper": 30,
+        "default": 9.80665,
+        "basis": "CONVENTION",
+        "source": null,
+        "note": ""
+      }
+    ],
+    "inputs": [
+      {
+        "name": "throttle_fraction",
+        "unit": "1",
+        "kind": "real",
+        "lower": 0,
+        "upper": 1,
+        "default": 1,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "mass_kg",
+        "unit": "kg",
+        "kind": "real",
+        "lower": 1,
+        "upper": 100000000.0,
+        "default": 1500000.0,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      }
+    ],
+    "outputs": {
+      "cluster_thrust_n": "N",
+      "weight_n": "N",
+      "thrust_to_weight": "1",
+      "vertical_force_margin_n": "N"
+    },
+    "legacy_source_id": "launch_vehicle.blue_origin_new_glenn.v1",
+    "facts": {},
+    "legacy_factory": "BlueOriginNewGlennProfilePrimitive",
+    "legacy_module": "substrate_profiles_registry.profiles.blue_origin_new_glenn_profile_primitive",
+    "fidelity": "ANALYTICAL_REDUCTION_WITH_EXPLICIT_SCENARIO_PARAMETERS",
+    "slug": "18_launch_vehicle_blue_origin_new_glenn"
+  },
+  {
+    "id": "controller.beaglebone_ai64_4gb.v1",
+    "aliases": [],
+    "number": 19,
+    "title": "BeagleBone AI-64 compute policy",
+    "strategy": "compute",
+    "domain": "HARDWARE_CONTROLLER",
+    "sources": [
+      "AI64"
+    ],
+    "version": "2.0.0",
+    "parameters": [
+      {
+        "name": "alternate_c",
+        "unit": "degC",
+        "kind": "real",
+        "lower": -50,
+        "upper": 150,
+        "default": 85,
+        "basis": "POLICY",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "contingency_c",
+        "unit": "degC",
+        "kind": "real",
+        "lower": -50,
+        "upper": 150,
+        "default": 95,
+        "basis": "POLICY",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "terminal_c",
+        "unit": "degC",
+        "kind": "real",
+        "lower": -50,
+        "upper": 150,
+        "default": 105,
+        "basis": "POLICY",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "alternate_memory",
+        "unit": "1",
+        "kind": "real",
+        "lower": 0,
+        "upper": 1,
+        "default": 0.75,
+        "basis": "POLICY",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "contingency_memory",
+        "unit": "1",
+        "kind": "real",
+        "lower": 0,
+        "upper": 1,
+        "default": 0.88,
+        "basis": "POLICY",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "terminal_memory",
+        "unit": "1",
+        "kind": "real",
+        "lower": 0,
+        "upper": 1,
+        "default": 0.94,
+        "basis": "POLICY",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "loop_budget_s",
+        "unit": "s",
+        "kind": "real",
+        "lower": 1e-06,
+        "upper": 100,
+        "default": 0.25,
+        "basis": "POLICY",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "queue_limit_items",
+        "unit": "count",
+        "kind": "integer",
+        "lower": 1,
+        "upper": 1000000.0,
+        "default": 128,
+        "basis": "POLICY",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "latency_s",
+        "unit": "s",
+        "kind": "real",
+        "lower": 0,
+        "upper": 100,
+        "default": 0.01,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "thermal_onset_c",
+        "unit": "degC",
+        "kind": "real",
+        "lower": -50,
+        "upper": 150,
+        "default": 85,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": "Delay mapping remains scenario-only, even when onset is published."
+      },
+      {
+        "name": "delay_s_per_k",
+        "unit": "s/K",
+        "kind": "real",
+        "lower": 0,
+        "upper": 1,
+        "default": 0.01,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": "Measure scheduling latency against temperature before physical reuse."
+      }
+    ],
+    "inputs": [
+      {
+        "name": "temperature_c",
+        "unit": "degC",
+        "kind": "real",
+        "lower": -50,
+        "upper": 150,
+        "default": 45,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "memory_fraction",
+        "unit": "1",
+        "kind": "real",
+        "lower": 0,
+        "upper": 1,
+        "default": 0.35,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "loop_time_s",
+        "unit": "s",
+        "kind": "real",
+        "lower": 0,
+        "upper": 100,
+        "default": 0.05,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "queue_items",
+        "unit": "count",
+        "kind": "integer",
+        "lower": 0,
+        "upper": 1000000.0,
+        "default": 5,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      }
+    ],
+    "outputs": {
+      "policy_state": "category",
+      "thermal_margin_k": "K",
+      "memory_margin_fraction": "1",
+      "loop_margin_s": "s",
+      "queue_margin_items": "count",
+      "estimated_latency_s": "s"
+    },
+    "legacy_source_id": "controller.tda4vm_am68a_8gb.v1",
+    "facts": {
+      "silicon": "TDA4VM",
+      "memory_gb": 4,
+      "r5f_silicon_cores": 6
+    },
+    "legacy_factory": "TDA4VMAM68A8GBProfilePrimitive",
+    "legacy_module": "substrate_profiles_registry.profiles.tda4vm_am68a_8gb_profile_primitive",
+    "fidelity": "ANALYTICAL_REDUCTION_WITH_EXPLICIT_SCENARIO_PARAMETERS",
+    "slug": "19_beaglebone_ai64_4gb"
+  },
+  {
+    "id": "controller.am68a_custom_8gb.v1",
+    "aliases": [],
+    "number": 20,
+    "title": "AM68A custom 8 GB target",
+    "strategy": "compute",
+    "domain": "HARDWARE_CONTROLLER",
+    "sources": [
+      "TI"
+    ],
+    "version": "2.0.0",
+    "parameters": [
+      {
+        "name": "alternate_c",
+        "unit": "degC",
+        "kind": "real",
+        "lower": -50,
+        "upper": 150,
+        "default": 85,
+        "basis": "POLICY",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "contingency_c",
+        "unit": "degC",
+        "kind": "real",
+        "lower": -50,
+        "upper": 150,
+        "default": 95,
+        "basis": "POLICY",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "terminal_c",
+        "unit": "degC",
+        "kind": "real",
+        "lower": -50,
+        "upper": 150,
+        "default": 105,
+        "basis": "POLICY",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "alternate_memory",
+        "unit": "1",
+        "kind": "real",
+        "lower": 0,
+        "upper": 1,
+        "default": 0.75,
+        "basis": "POLICY",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "contingency_memory",
+        "unit": "1",
+        "kind": "real",
+        "lower": 0,
+        "upper": 1,
+        "default": 0.88,
+        "basis": "POLICY",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "terminal_memory",
+        "unit": "1",
+        "kind": "real",
+        "lower": 0,
+        "upper": 1,
+        "default": 0.94,
+        "basis": "POLICY",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "loop_budget_s",
+        "unit": "s",
+        "kind": "real",
+        "lower": 1e-06,
+        "upper": 100,
+        "default": 0.25,
+        "basis": "POLICY",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "queue_limit_items",
+        "unit": "count",
+        "kind": "integer",
+        "lower": 1,
+        "upper": 1000000.0,
+        "default": 128,
+        "basis": "POLICY",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "latency_s",
+        "unit": "s",
+        "kind": "real",
+        "lower": 0,
+        "upper": 100,
+        "default": 0.01,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "thermal_onset_c",
+        "unit": "degC",
+        "kind": "real",
+        "lower": -50,
+        "upper": 150,
+        "default": 85,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": "Delay mapping remains scenario-only, even when onset is published."
+      },
+      {
+        "name": "delay_s_per_k",
+        "unit": "s/K",
+        "kind": "real",
+        "lower": 0,
+        "upper": 1,
+        "default": 0.01,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": "Measure scheduling latency against temperature before physical reuse."
+      }
+    ],
+    "inputs": [
+      {
+        "name": "temperature_c",
+        "unit": "degC",
+        "kind": "real",
+        "lower": -50,
+        "upper": 150,
+        "default": 45,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "memory_fraction",
+        "unit": "1",
+        "kind": "real",
+        "lower": 0,
+        "upper": 1,
+        "default": 0.35,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "loop_time_s",
+        "unit": "s",
+        "kind": "real",
+        "lower": 0,
+        "upper": 100,
+        "default": 0.05,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      },
+      {
+        "name": "queue_items",
+        "unit": "count",
+        "kind": "integer",
+        "lower": 0,
+        "upper": 1000000.0,
+        "default": 5,
+        "basis": "SCENARIO",
+        "source": null,
+        "note": ""
+      }
+    ],
+    "outputs": {
+      "policy_state": "category",
+      "thermal_margin_k": "K",
+      "memory_margin_fraction": "1",
+      "loop_margin_s": "s",
+      "queue_margin_items": "count",
+      "estimated_latency_s": "s"
+    },
+    "legacy_source_id": "controller.tda4vm_am68a_8gb.v1",
+    "facts": {
+      "silicon": "AM68A",
+      "memory_gb": 8,
+      "r5f_silicon_cores": 4,
+      "memory_evidence": "SCENARIO; board not specified"
+    },
+    "legacy_factory": "TDA4VMAM68A8GBProfilePrimitive",
+    "legacy_module": "substrate_profiles_registry.profiles.tda4vm_am68a_8gb_profile_primitive",
+    "fidelity": "ANALYTICAL_REDUCTION_WITH_EXPLICIT_SCENARIO_PARAMETERS",
+    "slug": "20_am68a_custom_8gb"
+  }
+]

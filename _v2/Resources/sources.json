@@ -1,0 +1,178 @@
+{
+  "PI": {
+    "id": "PI",
+    "url": "https://www.raspberrypi.com/news/heating-and-cooling-raspberry-pi-5/",
+    "title": "Raspberry Pi 5 thermal management",
+    "locator": "Thermal throttling discussion",
+    "reviewed": "2026-10-30",
+    "supported_claim": "Throttling begins at 80 C and increases at 85 C; neither temperature is a demonstrated terminal failure threshold."
+  },
+  "JETSON": {
+    "id": "JETSON",
+    "url": "https://developer.nvidia.com/blog/nvidia-jetpack-6-2-brings-super-mode-to-nvidia-jetson-orin-nano-and-jetson-orin-nx-modules/",
+    "title": "JetPack 6.2 power modes",
+    "locator": "Power-mode comparison table",
+    "reviewed": "2026-10-30",
+    "supported_claim": "Orin Nano 8 GB original 7/15 W modes differ from Super 15/25 W and MAXN SUPER. No universal board thermal limit inferred."
+  },
+  "TI": {
+    "id": "TI",
+    "url": "https://www.ti.com/product/AM68A",
+    "title": "TI AM68A product specification",
+    "locator": "Processor cores",
+    "reviewed": "2026-10-30",
+    "supported_claim": "AM68A lists four R5F cores, including device-management cores; available application cores require runtime allocation evidence."
+  },
+  "AI64": {
+    "id": "AI64",
+    "url": "https://www.beagleboard.org/boards/beaglebone-ai-64",
+    "title": "BeagleBone AI-64",
+    "locator": "Chipset and board features",
+    "reviewed": "2026-10-30",
+    "supported_claim": "TDA4VM; 4 GB board RAM; six R5F cores on silicon. Custom 8 GB targets are separate configurations."
+  },
+  "JACKAL": {
+    "id": "JACKAL",
+    "url": "https://docs.clearpathrobotics.com/docs_robots/legacy/ros1_robots/outdoor_robots/jackal/user_manual_jackal/",
+    "title": "Clearpath Jackal manual",
+    "locator": "System specifications",
+    "reviewed": "2026-10-30",
+    "supported_claim": "Maximum speed 2 m/s and maximum payload 20 kg. Braking and terrain coefficients still require measurement."
+  },
+  "JACKAL-MASS": {
+    "id": "JACKAL-MASS",
+    "url": "https://clearpathrobotics.com/blog/2026/01/how-to-choose-the-best-clearpath-platform-for-your-project/",
+    "title": "Clearpath platform comparison",
+    "locator": "Specification table",
+    "reviewed": "2026-10-30",
+    "supported_claim": "Jackal platform mass 17 kg; configuration-dependent payload and accessories are additional."
+  },
+  "PANDA": {
+    "id": "PANDA",
+    "url": "https://frankarobotics.github.io/docs/robot_specifications.html",
+    "title": "Franka control interface specifications",
+    "locator": "Limits for Franka Emika Robot",
+    "reviewed": "2026-10-30",
+    "supported_claim": "Panda/FER torque vector [87,87,87,87,12,12,12] Nm. Do not reuse across FR3 without its own limits."
+  },
+  "PANDA-STATE": {
+    "id": "PANDA-STATE",
+    "url": "https://frankarobotics.github.io/libfranka/latest/structfranka_1_1RobotState.html",
+    "title": "libfranka RobotState",
+    "locator": "q, q_d, tau_J, tau_J_d fields",
+    "reviewed": "2026-10-30",
+    "supported_claim": "Seven-joint measured and desired state fields are distinct; tau_J_d omits gravity, so raw torque subtraction needs convention reconciliation."
+  },
+  "MSS": {
+    "id": "MSS",
+    "url": "https://www.fossen.biz/MSS/",
+    "title": "Marine Systems Simulator",
+    "locator": "Otter and REMUS vehicle entries",
+    "reviewed": "2026-10-30",
+    "supported_claim": "Full vessel models use six degrees of freedom. The scalar drag lesson is a reduction, not an equivalent full vehicle model."
+  },
+  "REMUS": {
+    "id": "REMUS",
+    "url": "https://www.fossen.biz/pythonVehicleSim/",
+    "title": "Python Vehicle Simulator",
+    "locator": "REMUS 100 model description",
+    "reviewed": "2026-10-30",
+    "supported_claim": "The illustrated REMUS model has 31.9 kg mass, 1.9 m length, and 0.19 m diameter; deployment variants require separate identity."
+  },
+  "VALKYRIE": {
+    "id": "VALKYRIE",
+    "url": "https://www.nasa.gov/technology/r5/",
+    "title": "NASA R5",
+    "locator": "Specifications",
+    "reviewed": "2026-10-30",
+    "supported_claim": "NASA lists 300 lb, 44 degrees of freedom, and 1.8 kWh battery energy. A capture-point model is a separate reduction."
+  },
+  "IRIS": {
+    "id": "IRIS",
+    "url": "https://ardupilot.org/dev/docs/sitl-with-gazebo.html",
+    "title": "ArduPilot SITL with Gazebo",
+    "locator": "Iris example",
+    "reviewed": "2026-10-30",
+    "supported_claim": "Iris is a simulation model. Motor/thrust mappings require a pinned model and parameter set."
+  },
+  "SITL": {
+    "id": "SITL",
+    "url": "https://ardupilot.org/dev/docs/SITL_simulation_parameters.html",
+    "title": "SITL simulation parameters",
+    "locator": "SIM_ parameters",
+    "reviewed": "2026-10-30",
+    "supported_claim": "Failure and disturbance parameters alter the simulator; virtual EEPROM can retain changes between runs."
+  },
+  "DART": {
+    "id": "DART",
+    "url": "https://www.nasa.gov/wp-content/uploads/2023/08/pd-dart-fact-sheet.pdf",
+    "title": "DART spacecraft fact sheet",
+    "locator": "Spacecraft technologies",
+    "reviewed": "2026-10-30",
+    "supported_claim": "ROSA and SMART Nav are spacecraft-specific subsystems. Their presence does not calibrate power-flex or optical-error proxies."
+  },
+  "GTM": {
+    "id": "GTM",
+    "url": "https://software.nasa.gov/software/LAR-17595-1",
+    "title": "NASA GTM polynomial simulation",
+    "locator": "Overview",
+    "reviewed": "2026-10-30",
+    "supported_claim": "The cited GTM simulation is a 5.5-percent-scale model; full-scale aircraft properties cannot be silently substituted."
+  },
+  "AERO": {
+    "id": "AERO",
+    "url": "https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/dynamic-pressure/",
+    "title": "NASA dynamic pressure",
+    "locator": "Definition of dynamic pressure",
+    "reviewed": "2026-10-30",
+    "supported_claim": "q = rho v^2 / 2 defines dynamic pressure. Compressible flow still requires appropriate aerodynamic coefficients."
+  },
+  "X43": {
+    "id": "X43",
+    "url": "https://ntrs.nasa.gov/citations/20080006640",
+    "title": "X-43A Monte Carlo analysis",
+    "locator": "Abstract and documented uncertainty discussion",
+    "reviewed": "2026-10-30",
+    "supported_claim": "Flight results exceeded some preflight Monte Carlo bounds; coefficients and uncertainty require case-specific flight evidence."
+  },
+  "RF": {
+    "id": "RF",
+    "url": "https://www.itu.int/rec/R-REC-P.525-5-202411-I/en",
+    "title": "ITU-R P.525-5",
+    "locator": "Free-space attenuation",
+    "reviewed": "2026-10-30",
+    "supported_claim": "Free-space attenuation is a propagation baseline; atmospheric and ionospheric effects require additional models."
+  },
+  "JPL": {
+    "id": "JPL",
+    "url": "https://ssd.jpl.nasa.gov/astro_par.html",
+    "title": "JPL astrodynamic parameters",
+    "locator": "DE440 planetary GM table",
+    "reviewed": "2026-10-30",
+    "supported_claim": "Earth GM = 398600.435507 km^3/s^2; convert by 1e9 to m^3/s^2. Vacuum c = 299792458 m/s."
+  },
+  "BO": {
+    "id": "BO",
+    "url": "https://www.blueorigin.com/engines",
+    "title": "Blue Origin engines",
+    "locator": "BE-4",
+    "reviewed": "2026-10-30",
+    "supported_claim": "Current public BE-4 thrust is 2846 kN. Seven-engine baseline and older 550000 lbf configuration must not be conflated."
+  },
+  "NG": {
+    "id": "NG",
+    "url": "https://www.blueorigin.com/new-glenn",
+    "title": "New Glenn",
+    "locator": "Stage descriptions",
+    "reviewed": "2026-10-30",
+    "supported_claim": "7 BE-4 first-stage and 2 BE-3U second-stage engines. This lesson models only a declared scalar thrust balance."
+  },
+  "CONTAINMENT": {
+    "id": "CONTAINMENT",
+    "url": "https://www.cnsc.gc.ca/eng/acts-and-regulations/regulatory-documents/published/html/regdoc2-5-2-v2-1/index.cfm",
+    "title": "CNSC REGDOC-2.5.2 v2.1",
+    "locator": "6.6.9",
+    "reviewed": "2026-10-30",
+    "supported_claim": "Containment pressure and energy management is design-specific. This reference supports scope, not numerical plant limits."
+  }
+}

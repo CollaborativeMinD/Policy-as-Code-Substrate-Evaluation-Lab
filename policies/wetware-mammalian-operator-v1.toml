@@ -1,0 +1,19 @@
+version = 1
+name = "wetware-mammalian-operator-v1"
+generation = 1
+inputs = "teaching-fixture"
+time_s = 0
+wounds = []
+
+[substrate]
+id = "wetware.mammalian.operator.v1"
+overrides = []
+[substrate.parameters]
+recovery_time_s = 1200
+load_gain = 1
+load_limit = 0.7
+
+[observations]
+load_fraction = 0.8
+initial_load = 0.2
+duration_s = 1200

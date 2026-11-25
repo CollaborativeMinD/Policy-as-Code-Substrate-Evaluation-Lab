@@ -1,0 +1,28 @@
+version = 1
+name = "controller-jetson-orin-nano-8gb-v1"
+generation = 1
+inputs = "teaching-fixture"
+time_s = 0
+wounds = []
+
+[substrate]
+id = "controller.jetson_orin_nano_8gb.v1"
+overrides = []
+[substrate.parameters]
+alternate_c = 74
+contingency_c = 84
+terminal_c = 90
+alternate_memory = 0.8
+contingency_memory = 0.9
+terminal_memory = 0.96
+loop_budget_s = 0.25
+queue_limit_items = 256
+latency_s = 0.01
+thermal_onset_c = 85
+delay_s_per_k = 0.01
+
+[observations]
+temperature_c = 45
+memory_fraction = 0.35
+loop_time_s = 0.05
+queue_items = 5

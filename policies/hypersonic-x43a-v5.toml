@@ -1,0 +1,19 @@
+version = 1
+name = "hypersonic-x43a-v5"
+generation = 1
+inputs = "teaching-fixture"
+time_s = 0
+wounds = []
+
+[substrate]
+id = "hypersonic.x43a.v5"
+overrides = []
+[substrate.parameters]
+area_m2 = 1
+q_limit_pa = 50000
+
+[observations]
+density_kg_m3 = 0.02
+speed_m_s = 2000
+lift_coefficient = 0.5
+drag_coefficient = 0.1

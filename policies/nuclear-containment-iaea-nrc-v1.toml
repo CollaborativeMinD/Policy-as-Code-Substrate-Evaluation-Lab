@@ -1,0 +1,19 @@
+version = 1
+name = "nuclear-containment-iaea-nrc-v1"
+generation = 1
+inputs = "teaching-fixture"
+time_s = 0
+wounds = []
+
+[substrate]
+id = "nuclear.containment.iaea_nrc.v1"
+overrides = []
+[substrate.parameters]
+heat_removal_w = 1000000.0
+thermal_capacity_j_k = 100000000.0
+temp_limit_k = 400
+
+[observations]
+heat_in_w = 1200000.0
+initial_temp_k = 300
+duration_s = 100

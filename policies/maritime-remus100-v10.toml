@@ -1,0 +1,19 @@
+version = 1
+name = "maritime-remus100-v10"
+generation = 1
+inputs = "teaching-fixture"
+time_s = 0
+wounds = []
+
+[substrate]
+id = "maritime.remus100.v10"
+overrides = []
+[substrate.parameters]
+density_kg_m3 = 1025
+drag_area_m2 = 0.12
+thrust_n = 220
+mass_kg = 31.9
+
+[observations]
+speed_m_s = 1.2
+throttle_fraction = 0.5
