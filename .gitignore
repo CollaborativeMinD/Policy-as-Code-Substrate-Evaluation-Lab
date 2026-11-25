@@ -5,3 +5,8 @@ __marimo__/
 *.token
 .venv/
 local-*/
+
+.local/
+.console-venv/
+console-evidence/
+__pycache__/

@@ -25,3 +25,7 @@ Use an independently approved transport digest for a deployment. Windows inherit
 The tool result contains the original effect and durable receipt digest. A repeated evaluation of identical bytes reuses the same receipt. After a higher generation is admitted, the old transport pin stops matching. Update the relevant scenario digest in the transport TOML and restart with the newly approved transport digest. Credential rotation takes effect on the next request. Changing the transport port also changes its digest.
 
 Run `python verify_mcp.py` to regenerate `evidence/mcp-workstation.json` against a disposable local server, isolated SQLite ledger and temporary role credentials. The witness uses an ephemeral port. Run `python qualify.py` with the verification dependencies to reproduce the separate v2.0.0 reconciliation.
+
+## Live operator console
+
+Use the [console guide](Console.md) to observe inventory, publish scoped TOML changes, run admitted tasks and verify their receipts.

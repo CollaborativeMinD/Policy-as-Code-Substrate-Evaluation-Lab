@@ -32,3 +32,7 @@ The byte-preserved original archive contains the research, notebooks, reference 
 The server uses MCP 2026-07-28 over Streamable HTTP at `http://127.0.0.1:8765/mcp`. Every POST requires a bearer credential. The reader can call `scenarios.list`. The evaluator can also call `scenario.evaluate` with a scenario name, for example `{"name":"pi-thermal"}`. Policy admission stays with the trusted local launcher. An evaluation can only use the intersection of the active ledger entries and the exact scenario digests in `mcp-policy.toml`.
 
 Install `requirements-mcp.txt` in an isolated environment and follow the [MCP workstation runbook](Runbook.md#start-the-mcp-server). The [wire witness](verify_mcp.py) checks discovery, rejection, lifecycle changes, and the complete returned receipt against the v2 reconciliation. [Workstation results](evidence/mcp-workstation.json)
+
+## Live operator console
+
+Use the [console guide](Console.md) to observe inventory, publish scoped TOML changes, run admitted tasks and verify their receipts.

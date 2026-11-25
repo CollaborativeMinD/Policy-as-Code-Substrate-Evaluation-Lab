@@ -1,0 +1,23 @@
+version = 1
+component = "Substrate Evaluation Lab"
+host = "127.0.0.1"
+port = 8775
+protocol = "2026-07-28"
+poll_seconds = 3
+
+[roles]
+viewer = ["inventory.read"]
+admin = ["inventory.read", "policy.open", "policy.apply"]
+agent = ["inventory.read", "task.execute"]
+
+[resources.pi-thermal]
+operation = "scenario.evaluate"
+editable_inputs = []
+source = ".local/lab-upstream.toml"
+[resources.pi-thermal.inputs]
+
+[resources.pi-loop-budget]
+operation = "scenario.evaluate"
+editable_inputs = []
+source = ".local/lab-upstream.toml"
+[resources.pi-loop-budget.inputs]
